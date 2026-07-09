@@ -9,23 +9,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* ============================================================
-   TOKEN / VARIABEL DESAIN
-   Ganti nilai di sini untuk mengubah identitas warna & tipografi
-   seluruh situs.
-   ============================================================ */
 :root{
-  --forest:#1E4634;       /* hijau tua – warna utama, identik lahan subur Mijen */
-  --forest-light:#2F6B4F; /* hijau sekunder */
-  --forest-pale:#DDE9E0;  /* hijau sangat muda untuk aksen lembut */
-  --sand:#F6F1E3;         /* krem hangat – latar konten */
-  --sand-deep:#EEE4CB;    /* krem lebih gelap untuk selingan seksi */
-  --cream:#FBF8F0;        /* putih hangat untuk kartu */
-  --rambutan:#C1442C;     /* merah-oranye rambutan – aksen tegas */
-  --gold:#D6A527;         /* kuning durian/gading – aksen kedua */
-  --ink:#211F19;          /* nyaris hitam, hangat */
-  --ink-soft:#5B5648;     /* teks sekunder */
-  --line:#E1D8BE;         /* garis pembatas halus */
+  --forest:#1E4634;
+  --forest-light:#2F6B4F;
+  --forest-pale:#DDE9E0;
+  --sand:#F6F1E3;
+  --sand-deep:#EEE4CB;
+  --cream:#FBF8F0;
+  --rambutan:#C1442C;
+  --gold:#D6A527;
+  --ink:#211F19;
+  --ink-soft:#5B5648;
+  --line:#E1D8BE;
   --shadow-sm:0 2px 10px rgba(33,31,25,.08);
   --shadow-md:0 12px 32px rgba(33,31,25,.14);
   --radius-lg:26px;
@@ -35,18 +30,9 @@
   --font-body:'Plus Jakarta Sans',system-ui,sans-serif;
   --font-mono:'JetBrains Mono',monospace;
 }
-
-/* ============================================================ RESET & DASAR ============================================================ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{
-  font-family:var(--font-body);
-  color:var(--ink);
-  background:var(--sand);
-  line-height:1.65;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
+body{font-family:var(--font-body);color:var(--ink);background:var(--sand);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 img{max-width:100%;display:block;}
 a{color:inherit;text-decoration:none;}
 button{font:inherit;cursor:pointer;border:none;background:none;color:inherit;}
@@ -54,66 +40,24 @@ ul{list-style:none;}
 h1,h2,h3,h4{font-family:var(--font-display);line-height:1.15;font-weight:600;color:var(--ink);}
 :focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px;}
 .container{max-width:1180px;margin:0 auto;padding:0 24px;}
-
-@media (prefers-reduced-motion: reduce){
-  *,*::before,*::after{
-    animation-duration:.01ms !important;
-    animation-iteration-count:1 !important;
-    transition-duration:.01ms !important;
-    scroll-behavior:auto !important;
-  }
-}
-
-.skip-link{
-  position:absolute;left:-999px;top:auto;background:var(--gold);color:var(--ink);
-  padding:12px 20px;border-radius:0 0 10px 0;font-weight:700;z-index:999;
-}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important;}}
+.skip-link{position:absolute;left:-999px;top:auto;background:var(--gold);color:var(--ink);padding:12px 20px;border-radius:0 0 10px 0;font-weight:700;z-index:999;}
 .skip-link:focus{left:0;top:0;}
-
-/* ============================================================ UTILITAS ============================================================ */
-.eyebrow{
-  font-family:var(--font-mono);
-  text-transform:uppercase;
-  letter-spacing:.14em;
-  font-size:.72rem;
-  font-weight:500;
-  color:var(--forest-light);
-  display:inline-flex;align-items:center;gap:8px;
-  margin-bottom:14px;
-}
+.eyebrow{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;font-weight:500;color:var(--forest-light);display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;}
 .eyebrow::before{content:"";width:22px;height:2px;background:var(--rambutan);display:inline-block;}
-.section-title{
-  font-size:clamp(1.7rem,3.4vw,2.5rem);
-  margin-bottom:16px;
-  max-width:640px;
-}
-.section-lede{
-  color:var(--ink-soft);
-  font-size:1.02rem;
-  max-width:600px;
-  margin-bottom:44px;
-}
+.section-title{font-size:clamp(1.7rem,3.4vw,2.5rem);margin-bottom:16px;max-width:640px;}
+.section-lede{color:var(--ink-soft);font-size:1.02rem;max-width:600px;margin-bottom:44px;}
 .section-head{margin-bottom:8px;}
 .pad{padding:100px 0;}
 @media (max-width:768px){.pad{padding:64px 0;}}
-.btn{
-  display:inline-flex;align-items:center;gap:10px;
-  padding:14px 26px;border-radius:999px;
-  font-weight:700;font-size:.95rem;
-  transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
-}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:700;font-size:.95rem;transition:transform .25s ease, box-shadow .25s ease, background .25s ease;}
 .btn-primary{background:var(--gold);color:var(--ink);box-shadow:var(--shadow-sm);}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);}
 .btn-ghost{border:1.5px solid rgba(251,248,240,.55);color:var(--cream);}
 .btn-ghost:hover{background:rgba(251,248,240,.12);}
 .btn-outline{border:1.5px solid var(--forest);color:var(--forest);}
 .btn-outline:hover{background:var(--forest);color:var(--cream);}
-.card{
-  background:var(--cream);
-  border:1px solid var(--line);
-  border-radius:var(--radius-md);
-  box-shadow:var(--shadow-sm);
-}
+.card{background:var(--cream);border:1px solid var(--line);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease, transform .7s ease;}
 .reveal.in{opacity:1;transform:translateY(0);}
 .grid{display:grid;gap:22px;}
@@ -123,70 +67,32 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.15;font-weight:600;col
 .g-6{grid-template-columns:repeat(6,1fr);}
 @media (max-width:980px){.g-4{grid-template-columns:repeat(2,1fr);}.g-6{grid-template-columns:repeat(3,1fr);}.g-3{grid-template-columns:repeat(2,1fr);}}
 @media (max-width:600px){.g-2,.g-3,.g-4,.g-6{grid-template-columns:1fr 1fr;}}
-
-/* ============================================================ NAVBAR ============================================================ */
-.navbar{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:18px 0;
-  transition:background .35s ease, box-shadow .35s ease, padding .35s ease;
-}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;transition:background .35s ease, box-shadow .35s ease, padding .35s ease;}
 .navbar.solid{background:rgba(246,241,227,.92);backdrop-filter:blur(10px);box-shadow:0 2px 18px rgba(33,31,25,.08);padding:12px 0;}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;}
 .brand{display:flex;align-items:center;gap:10px;}
-.brand-mark{width:38px;height:38px;flex:none;}
+.brand-mark{width:38px;height:38px;flex:none;border-radius:50%;object-fit:cover;}
 .brand-text{display:flex;flex-direction:column;line-height:1.05;}
 .brand-text b{font-family:var(--font-display);font-size:1.18rem;color:var(--cream);transition:color .35s ease;}
 .brand-text span{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);}
 .navbar.solid .brand-text b{color:var(--forest);}
 .nav-links{display:flex;align-items:center;gap:6px;}
-.nav-links a{
-  padding:9px 15px;border-radius:999px;font-size:.9rem;font-weight:600;
-  color:rgba(251,248,240,.85);transition:background .25s ease,color .25s ease;
-}
+.nav-links a{padding:9px 15px;border-radius:999px;font-size:.9rem;font-weight:600;color:rgba(251,248,240,.85);transition:background .25s ease,color .25s ease;}
 .navbar.solid .nav-links a{color:var(--ink-soft);}
 .nav-links a:hover,.nav-links a.active{background:rgba(251,248,240,.15);color:var(--cream);}
 .navbar.solid .nav-links a:hover,.navbar.solid .nav-links a.active{background:var(--forest-pale);color:var(--forest);}
 .nav-toggle{display:none;width:42px;height:42px;align-items:center;justify-content:center;border-radius:10px;color:var(--cream);}
 .navbar.solid .nav-toggle{color:var(--forest);}
-@media (max-width:900px){
-  .nav-links{
-    position:fixed;inset:0 0 auto 0;top:64px;background:var(--forest);
-    flex-direction:column;align-items:stretch;gap:0;padding:12px;
-    transform:translateY(-140%);transition:transform .35s ease;
-    box-shadow:var(--shadow-md);
-  }
-  .nav-links.open{transform:translateY(0);}
-  .nav-links a{color:var(--cream);padding:14px 18px;border-radius:12px;font-size:1rem;}
-  .nav-toggle{display:flex;}
-}
-
-/* ============================================================ HERO ============================================================ */
-.hero{
-  position:relative;
-  background:radial-gradient(120% 100% at 85% -10%, #2b5a44 0%, var(--forest) 45%, #163a2b 100%);
-  color:var(--cream);
-  padding:170px 0 0;
-  overflow:hidden;
-}
+@media (max-width:900px){.nav-links{position:fixed;inset:0 0 auto 0;top:64px;background:var(--forest);flex-direction:column;align-items:stretch;gap:0;padding:12px;transform:translateY(-140%);transition:transform .35s ease;box-shadow:var(--shadow-md);}.nav-links.open{transform:translateY(0);}.nav-links a{color:var(--cream);padding:14px 18px;border-radius:12px;font-size:1rem;}.nav-toggle{display:flex;}}
+.hero{position:relative;background:radial-gradient(120% 100% at 85% -10%, #2b5a44 0%, var(--forest) 45%, #163a2b 100%);color:var(--cream);padding:170px 0 0;overflow:hidden;}
 .hero-inner{position:relative;z-index:2;max-width:760px;}
 .hero .eyebrow{color:var(--gold);}
 .hero .eyebrow::before{background:var(--gold);}
-.hero h1{
-  font-size:clamp(2.6rem,6.4vw,4.6rem);
-  color:var(--cream);
-  font-weight:600;
-  letter-spacing:-.01em;
-}
+.hero h1{font-size:clamp(2.6rem,6.4vw,4.6rem);color:var(--cream);font-weight:600;letter-spacing:-.01em;}
 .hero h1 em{color:var(--gold);font-style:normal;}
-.hero-tag{
-  font-size:1.12rem;color:rgba(251,248,240,.86);margin:22px 0 34px;max-width:560px;
-}
+.hero-tag{font-size:1.12rem;color:rgba(251,248,240,.86);margin:22px 0 34px;max-width:560px;}
 .hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:56px;}
-.hero-stats{
-  display:flex;gap:0;flex-wrap:wrap;
-  border-top:1px solid rgba(251,248,240,.18);
-  padding-top:26px;
-}
+.hero-stats{display:flex;gap:0;flex-wrap:wrap;border-top:1px solid rgba(251,248,240,.18);padding-top:26px;}
 .hero-stat{padding:0 30px 0 0;margin-right:30px;border-right:1px solid rgba(251,248,240,.18);}
 .hero-stat:last-child{border-right:none;}
 .hero-stat b{display:block;font-family:var(--font-display);font-size:1.7rem;color:var(--gold);}
@@ -195,102 +101,53 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.15;font-weight:600;col
 .hero-orchard{position:absolute;left:0;right:0;bottom:-2px;width:100%;z-index:1;opacity:.5;}
 .hero-wave{display:block;width:100%;position:relative;z-index:2;margin-top:70px;}
 @media (max-width:600px){.hero{padding-top:130px;}.hero-stat{padding-right:18px;margin-right:18px;}}
-
-/* Motif botani (elemen tanda tangan): durian & rambutan */
 .botanic-strip{background:var(--sand);padding:14px 0;overflow:hidden;}
 .botanic-strip svg{width:100%;height:34px;display:block;}
-
-/* ============================================================ SAMBUTAN ============================================================ */
 .sambutan{background:var(--sand);}
 .sambutan-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center;}
-.sambutan-photo{
-  aspect-ratio:4/5;border-radius:var(--radius-lg);
-  background:linear-gradient(160deg,var(--forest-pale),var(--sand-deep));
-  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;
-  border:1px solid var(--line);color:var(--forest-light);
-}
+.sambutan-photo{aspect-ratio:4/5;border-radius:var(--radius-lg);background:linear-gradient(160deg,var(--forest-pale),var(--sand-deep));display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;border:1px solid var(--line);color:var(--forest-light);overflow:hidden;}
+.sambutan-photo img{width:100%;height:100%;object-fit:cover;}
 .sambutan-photo span{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;}
 .sambutan-quote{font-family:var(--font-display);font-size:1.35rem;font-weight:400;font-style:italic;color:var(--ink);margin-bottom:22px;}
 .sambutan-body p{color:var(--ink-soft);margin-bottom:14px;}
 .sambutan-sign b{display:block;font-family:var(--font-display);font-size:1.1rem;margin-top:18px;}
 .sambutan-sign span{font-size:.85rem;color:var(--ink-soft);}
 @media (max-width:860px){.sambutan-grid{grid-template-columns:1fr;}.sambutan-photo{max-width:280px;margin:0 auto;}}
-
-/* ============================================================ TENTANG (SEJARAH + VISI MISI) ============================================================ */
 .tentang{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
 .tentang-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
 .tentang-col h3{font-size:1.3rem;margin-bottom:14px;color:var(--forest);}
 .tentang-col p{color:var(--ink-soft);margin-bottom:14px;}
-.misi-list li{
-  display:flex;gap:14px;padding:14px 0;border-top:1px dashed var(--line);
-  color:var(--ink-soft);font-size:.96rem;
-}
+.misi-list li{display:flex;gap:14px;padding:14px 0;border-top:1px dashed var(--line);color:var(--ink-soft);font-size:.96rem;}
 .misi-list li:first-child{border-top:none;}
-.misi-num{
-  font-family:var(--font-mono);font-weight:600;color:var(--rambutan);flex:none;
-}
+.misi-num{font-family:var(--font-mono);font-weight:600;color:var(--rambutan);flex:none;}
 @media (max-width:860px){.tentang-grid{grid-template-columns:1fr;gap:40px;}}
-
-/* ============================================================ WILAYAH / STATISTIK ============================================================ */
 .wilayah{background:var(--sand);}
-.stat-card{
-  padding:28px 22px;text-align:left;position:relative;overflow:hidden;
-}
-.stat-card b{
-  font-family:var(--font-display);font-size:2.1rem;color:var(--forest);display:block;
-}
+.stat-card{padding:28px 22px;text-align:left;position:relative;overflow:hidden;}
+.stat-card b{font-family:var(--font-display);font-size:2.1rem;color:var(--forest);display:block;}
 .stat-card .unit{font-size:1.1rem;color:var(--forest-light);font-weight:500;}
-.stat-card span.label{
-  display:block;margin-top:8px;font-family:var(--font-mono);font-size:.7rem;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);
-}
-.stat-card::after{
-  content:"";position:absolute;right:-18px;bottom:-18px;width:70px;height:70px;
-  border-radius:50%;background:var(--forest-pale);z-index:0;
-}
+.stat-card span.label{display:block;margin-top:8px;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);}
+.stat-card::after{content:"";position:absolute;right:-18px;bottom:-18px;width:70px;height:70px;border-radius:50%;background:var(--forest-pale);z-index:0;}
 .stat-card b,.stat-card span{position:relative;z-index:1;}
 .wilayah-note{font-size:.85rem;color:var(--ink-soft);font-style:italic;margin-top:22px;}
-
-/* ============================================================ POTENSI (SEKSI TANDA TANGAN) ============================================================ */
 .potensi{background:var(--forest);color:var(--cream);position:relative;}
 .potensi .eyebrow{color:var(--gold);}
 .potensi .eyebrow::before{background:var(--gold);}
 .potensi .section-title{color:var(--cream);}
 .potensi .section-lede{color:rgba(251,248,240,.78);}
 .potensi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px;}
-.potensi-card{
-  background:rgba(251,248,240,.06);
-  border:1px solid rgba(251,248,240,.16);
-  border-radius:var(--radius-md);padding:30px 26px;
-}
+.potensi-card{background:rgba(251,248,240,.06);border:1px solid rgba(251,248,240,.16);border-radius:var(--radius-md);padding:30px 26px;}
 .potensi-icon{width:46px;height:46px;margin-bottom:18px;}
 .potensi-card h3{color:var(--cream);font-size:1.2rem;margin-bottom:10px;}
 .potensi-card p{color:rgba(251,248,240,.75);font-size:.94rem;}
-.musim-note{
-  margin-top:40px;padding:22px 26px;border-radius:var(--radius-md);
-  background:rgba(214,165,39,.13);border:1px dashed rgba(214,165,39,.5);
-  font-size:.95rem;color:rgba(251,248,240,.88);
-}
+.musim-note{margin-top:40px;padding:22px 26px;border-radius:var(--radius-md);background:rgba(214,165,39,.13);border:1px dashed rgba(214,165,39,.5);font-size:.95rem;color:rgba(251,248,240,.88);}
 @media (max-width:860px){.potensi-grid{grid-template-columns:1fr;}}
-
-/* ============================================================ PRESTASI ============================================================ */
 .prestasi{background:var(--sand-deep);}
 .badge-row{display:flex;flex-wrap:wrap;gap:12px;}
-.badge{
-  display:flex;align-items:center;gap:10px;
-  background:var(--cream);border:1px solid var(--line);border-radius:999px;
-  padding:10px 18px 10px 12px;font-size:.88rem;font-weight:600;color:var(--ink);
-  box-shadow:var(--shadow-sm);
-}
+.badge{display:flex;align-items:center;gap:10px;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:10px 18px 10px 12px;font-size:.88rem;font-weight:600;color:var(--ink);box-shadow:var(--shadow-sm);}
 .badge svg{width:20px;height:20px;flex:none;color:var(--gold);}
-
-/* ============================================================ STRUKTUR ORGANISASI ============================================================ */
 .struktur{background:var(--cream);}
 .org{display:flex;flex-direction:column;align-items:center;gap:0;}
-.org-box{
-  background:var(--forest);color:var(--cream);border-radius:var(--radius-sm);
-  padding:16px 26px;text-align:center;min-width:200px;box-shadow:var(--shadow-sm);
-}
+.org-box{background:var(--forest);color:var(--cream);border-radius:var(--radius-sm);padding:16px 26px;text-align:center;min-width:200px;box-shadow:var(--shadow-sm);}
 .org-box b{display:block;font-size:.95rem;letter-spacing:.02em;}
 .org-box span{display:block;font-size:.76rem;color:rgba(251,248,240,.7);margin-top:4px;font-style:italic;}
 .org-box.alt{background:var(--forest-light);}
@@ -300,54 +157,30 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.15;font-weight:600;col
 .org-row .org-item{display:flex;flex-direction:column;align-items:center;padding:0 12px;position:relative;}
 .org-row .org-item::before{content:"";position:absolute;top:-30px;left:50%;width:2px;height:30px;background:var(--line);}
 .org-row .org-box{min-width:170px;}
-@media (max-width:860px){
-  .org-row{flex-direction:column;gap:20px;padding-top:0;}
-  .org-row::before{display:none;}
-  .org-row .org-item::before{position:static;height:20px;margin-bottom:0;}
-  .org-row .org-item{padding:0;}
-}
-
-/* ============================================================ LAYANAN PUBLIK ============================================================ */
+@media (max-width:860px){.org-row{flex-direction:column;gap:20px;padding-top:0;}.org-row::before{display:none;}.org-row .org-item::before{position:static;height:20px;margin-bottom:0;}.org-row .org-item{padding:0;}}
 .layanan{background:var(--sand);}
 .layanan-card{padding:26px 24px;}
 .layanan-icon{width:38px;height:38px;color:var(--rambutan);margin-bottom:16px;}
 .layanan-card h3{font-size:1.06rem;margin-bottom:8px;}
 .layanan-card p{color:var(--ink-soft);font-size:.9rem;margin-bottom:10px;}
 .layanan-syarat{font-family:var(--font-mono);font-size:.72rem;color:var(--forest-light);letter-spacing:.02em;}
-.jam-strip{
-  margin-top:36px;display:flex;flex-wrap:wrap;gap:20px 44px;align-items:center;
-  padding:22px 26px;border-radius:var(--radius-md);background:var(--forest-pale);
-}
+.jam-strip{margin-top:36px;display:flex;flex-wrap:wrap;gap:20px 44px;align-items:center;padding:22px 26px;border-radius:var(--radius-md);background:var(--forest-pale);}
 .jam-strip div b{display:block;font-size:.75rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--forest-light);}
 .jam-strip div span{font-size:.95rem;font-weight:600;}
-
-/* ============================================================ BERITA ============================================================ */
 .berita{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
 .berita-card{overflow:hidden;}
-.berita-thumb{
-  height:150px;background:linear-gradient(135deg,var(--forest),var(--forest-light));
-  display:flex;align-items:center;justify-content:center;color:rgba(251,248,240,.85);
-}
+.berita-thumb{height:150px;background:linear-gradient(135deg,var(--forest),var(--forest-light));display:flex;align-items:center;justify-content:center;color:rgba(251,248,240,.85);overflow:hidden;}
 .berita-thumb svg{width:34px;height:34px;}
+.berita-thumb img{width:100%;height:100%;object-fit:cover;}
 .berita-body{padding:22px 22px 24px;}
 .berita-date{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--rambutan);margin-bottom:10px;display:block;}
 .berita-body h3{font-size:1.08rem;margin-bottom:10px;}
 .berita-body p{color:var(--ink-soft);font-size:.9rem;margin-bottom:14px;}
 .berita-link{font-weight:700;font-size:.85rem;color:var(--forest);display:inline-flex;align-items:center;gap:6px;}
-
-/* ============================================================ GALERI ============================================================ */
 .galeri{background:var(--sand);}
-.galeri-item{
-  aspect-ratio:1/1;border-radius:var(--radius-md);
-  background:linear-gradient(150deg,var(--forest-pale),var(--sand-deep));
-  border:1px solid var(--line);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
-  color:var(--forest-light);text-align:center;padding:14px;
-}
+.galeri-item{aspect-ratio:1/1;border-radius:var(--radius-md);background:linear-gradient(150deg,var(--forest-pale),var(--sand-deep));border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--forest-light);text-align:center;padding:14px;}
 .galeri-item svg{width:28px;height:28px;}
 .galeri-item span{font-size:.78rem;font-weight:600;color:var(--ink-soft);}
-
-/* ============================================================ KONTAK ============================================================ */
 .kontak{background:var(--forest);color:var(--cream);}
 .kontak .eyebrow{color:var(--gold);}
 .kontak .eyebrow::before{background:var(--gold);}
@@ -359,21 +192,13 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.15;font-weight:600;col
 .kontak-list b{display:block;font-size:.72rem;font-family:var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:rgba(251,248,240,.6);margin-bottom:4px;}
 .kontak-list span{font-size:.98rem;}
 .kontak-note{margin-top:18px;font-size:.8rem;color:rgba(251,248,240,.55);font-style:italic;}
-.map-frame{
-  border-radius:var(--radius-md);overflow:hidden;border:1px solid rgba(251,248,240,.2);
-  aspect-ratio:4/3;
-}
+.map-frame{border-radius:var(--radius-md);overflow:hidden;border:1px solid rgba(251,248,240,.2);aspect-ratio:4/3;}
 .map-frame iframe{width:100%;height:100%;border:0;filter:grayscale(.15) contrast(1.05);}
 .social-row{display:flex;gap:10px;margin-top:22px;}
-.social-row a{
-  width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(251,248,240,.35);
-  display:flex;align-items:center;justify-content:center;transition:background .25s ease;
-}
+.social-row a{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(251,248,240,.35);display:flex;align-items:center;justify-content:center;transition:background .25s ease;}
 .social-row a:hover{background:rgba(251,248,240,.14);}
 .social-row svg{width:18px;height:18px;}
 @media (max-width:860px){.kontak-grid{grid-template-columns:1fr;}}
-
-/* ============================================================ FOOTER ============================================================ */
 footer{background:#13291F;color:rgba(251,248,240,.65);padding:50px 0 26px;}
 .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;padding-bottom:34px;border-bottom:1px solid rgba(251,248,240,.12);}
 .footer-brand b{font-family:var(--font-display);font-size:1.3rem;color:var(--cream);}
@@ -384,14 +209,9 @@ footer{background:#13291F;color:rgba(251,248,240,.65);padding:50px 0 26px;}
 .footer-col a:hover{color:var(--cream);}
 .footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:24px;font-size:.78rem;}
 .footer-bottom .tpl-note{max-width:520px;font-style:italic;color:rgba(251,248,240,.5);}
-.credit-line{
-  margin-top:18px;padding-top:18px;border-top:1px dashed rgba(251,248,240,.14);
-  font-size:.76rem;line-height:1.7;color:rgba(251,248,240,.55);text-align:center;
-}
+.credit-line{margin-top:18px;padding-top:18px;border-top:1px dashed rgba(251,248,240,.14);font-size:.76rem;line-height:1.7;color:rgba(251,248,240,.55);text-align:center;}
 .credit-line b{color:rgba(251,248,240,.85);font-weight:700;}
 @media (max-width:700px){.credit-line{text-align:left;}}
-
-/* ============================================================ ANIMASI MASUK NAVBAR ============================================================ */
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
 .hero-inner > *{animation:fadeUp .8s ease both;}
 .hero-inner > *:nth-child(2){animation-delay:.08s;}
@@ -402,15 +222,10 @@ footer{background:#13291F;color:rgba(251,248,240,.65);padding:50px 0 26px;}
 </head>
 <body>
 <a href="#konten" class="skip-link">Lompat ke konten utama</a>
-
-<!-- ============================================================ NAVBAR ============================================================ -->
 <header class="navbar" id="navbar">
   <div class="container nav-inner">
     <a href="#beranda" class="brand">
-      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <circle cx="20" cy="20" r="19" fill="#0F2A1F"/>
-        <polygon points="29.4,20 24.5,21.9 26.1,26.8 21.2,25.6 20,30.5 18.8,25.6 13.9,26.8 15.5,21.9 10.6,20 15.5,18.1 13.9,13.2 18.8,14.4 20,9.5 21.2,14.4 26.1,13.2 24.5,18.1" fill="#D6A527"/>
-      </svg>
+      <img class="brand-mark" src="https://thfvnext.bing.com/th/id/OIP.K6811aVrcQiOAHViwTawhwHaFj?r=0&o=7&cb=thfvnextfalcon4rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Logo Kelurahan Mijen">
       <span class="brand-text"><b>Mijen</b><span>Kelurahan</span></span>
     </a>
     <nav class="nav-links" id="navLinks">
@@ -427,9 +242,7 @@ footer{background:#13291F;color:rgba(251,248,240,.65);padding:50px 0 26px;}
     </button>
   </div>
 </header>
-
 <main id="konten">
-<!-- ============================================================ HERO ============================================================ -->
 <section class="hero" id="beranda">
   <div class="container hero-inner">
     <p class="eyebrow">Arief Pebryanto Bagaswara &middot; G-2 &middot; Desa Dan Kelurahan</p>
@@ -447,13 +260,10 @@ footer{background:#13291F;color:rgba(251,248,240,.65);padding:50px 0 26px;}
     </div>
     <p class="hero-note">*Sumber data : https://kecmijen.semarangkota.go.id/luas-wilayah.</p>
   </div>
-
   <svg class="hero-wave" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true">
     <path d="M0,50 C280,110 900,-10 1200,50 L1200,90 L0,90 Z" fill="#F6F1E3"/>
   </svg>
 </section>
-
-<!-- Strip motif botani: tanda tangan visual situs -->
 <div class="botanic-strip" aria-hidden="true">
   <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
     <g fill="#2F6B4F">
@@ -474,13 +284,10 @@ footer{background:#13291F;color:rgba(251,248,240,.65);padding:50px 0 26px;}
     </g>
   </svg>
 </div>
-
-<!-- ============================================================ SAMBUTAN LURAH ============================================================ -->
 <section class="sambutan pad">
   <div class="container sambutan-grid reveal">
     <div class="sambutan-photo">
-      <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
-      <img src="https://tse2.mm.bing.net/th/id/OIP.dE-66yfsrC_6moS6oubSkAHaJ8?r=0&cb=thfvnextfalcon4&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Foto Lurah Mijen" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg);">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.dE-66yfsrC_6moS6oubSkAHaJ8?r=0&cb=thfvnextfalcon4&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Foto Lurah Mijen">
     </div>
     <div>
       <p class="eyebrow">Sambutan</p>
@@ -490,14 +297,12 @@ footer{background:#13291F;color:rgba(251,248,240,.65);padding:50px 0 26px;}
         <p>Mari bersama membangun Mijen yang guyub, bersih, dan sejahtera, selaras dengan semangat Mijen Bersemi.</p>
       </div>
       <div class="sambutan-sign">
-        <b>[Iriyanto]</b>
+        <b>Iriyanto</b>
         <span>Lurah Mijen</span>
       </div>
     </div>
   </div>
 </section>
-
-<!-- ============================================================ PROFIL: SEJARAH & VISI MISI ============================================================ -->
 <section class="tentang pad" id="profil">
   <div class="container">
     <div class="section-head reveal">
@@ -525,8 +330,6 @@ footer{background:#13291F;color:rgba(251,248,240,.65);padding:50px 0 26px;}
     </div>
   </div>
 </section>
-
-<!-- ============================================================ DATA WILAYAH ============================================================ -->
 <section class="wilayah pad">
   <div class="container">
     <div class="section-head reveal">
@@ -545,8 +348,6 @@ footer{background:#13291F;color:rgba(251,248,240,.65);padding:50px 0 26px;}
     <p class="wilayah-note reveal">*Angka bersifat ilustratif sebagai contoh tampilan. Perbarui sesuai data monografi resmi kelurahan.</p>
   </div>
 </section>
-
-<!-- ============================================================ POTENSI UNGGULAN (SEKSI TANDA TANGAN) ============================================================ -->
 <section class="potensi pad" id="potensi">
   <div class="container">
     <div class="section-head reveal">
@@ -574,8 +375,6 @@ footer{background:#13291F;color:rgba(251,248,240,.65);padding:50px 0 26px;}
     <p class="musim-note reveal">🌱 Musim panen raya biasanya berlangsung menjelang akhir hingga awal tahun, saat aroma durian matang memenuhi kampung dan warga ramai menggelar lapak buah di pinggir jalan.</p>
   </div>
 </section>
-
-<!-- ============================================================ PRESTASI ============================================================ -->
 <section class="prestasi pad">
   <div class="container">
     <div class="section-head reveal">
@@ -592,8 +391,6 @@ footer{background:#13291F;color:rgba(251,248,240,.65);padding:50px 0 26px;}
     </div>
   </div>
 </section>
-
-<!-- ============================================================ STRUKTUR ORGANISASI ============================================================ -->
 <section class="struktur pad" id="struktur">
   <div class="container">
     <div class="section-head reveal">
@@ -601,19 +398,17 @@ footer{background:#13291F;color:rgba(251,248,240,.65);padding:50px 0 26px;}
       <h2 class="section-title">Struktur Organisasi Kelurahan</h2>
     </div>
     <div class="org reveal">
-      <div class="org-box"><b>LURAH MIJEN</b><span>[Iriyanto]</span></div>
+      <div class="org-box"><b>LURAH MIJEN</b><span>Iriyanto</span></div>
       <div class="org-line"></div>
-      <div class="org-box alt"><b>SEKRETARIS KELURAHAN</b><span>[Rahmat Agung]</span></div>
+      <div class="org-box alt"><b>SEKRETARIS KELURAHAN</b><span>Rahmat Agung</span></div>
       <div class="org-row">
-        <div class="org-item"><div class="org-box"><b>Kasi Pemerintahan &amp; Trantib</b><span>[Alang Sampurna]</span></div></div>
-        <div class="org-item"><div class="org-box"><b>Kasi Kesejahteraan Sosial</b><span>[Zoin Mattaqeen]</span></div></div>
-        <div class="org-item"><div class="org-box"><b>Kasi Ekonomi &amp; Pembangunan</b><span>[Meerfathiya]</span></div></div>
+        <div class="org-item"><div class="org-box"><b>Kasi Pemerintahan &amp; Trantib</b><span>Alang Sampurna</span></div></div>
+        <div class="org-item"><div class="org-box"><b>Kasi Kesejahteraan Sosial</b><span>Zoin Mattaqeen</span></div></div>
+        <div class="org-item"><div class="org-box"><b>Kasi Ekonomi &amp; Pembangunan</b><span>Meerfathiya</span></div></div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- ============================================================ LAYANAN PUBLIK ============================================================ -->
 <section class="layanan pad" id="layanan">
   <div class="container">
     <div class="section-head reveal">
@@ -666,8 +461,6 @@ footer{background:#13291F;color:rgba(251,248,240,.65);padding:50px 0 26px;}
     </div>
   </div>
 </section>
-
-<!-- ============================================================ BERITA ============================================================ -->
 <section class="berita pad" id="berita">
   <div class="container">
     <div class="section-head reveal">
@@ -676,7 +469,7 @@ footer{background:#13291F;color:rgba(251,248,240,.65);padding:50px 0 26px;}
     </div>
     <div class="grid g-3 reveal">
       <article class="card berita-card">
-        <div class="berita-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h18v18H3z"/><path d="M8 21V9"/><path d="M16 21V9"/></svg></div>
+        <div class="berita-thumb"><img src="https://tse3.mm.bing.net/th/id/OIP.eJYhLkaa-zDS8ZESqXlcRwHaE6?r=0&cb=thfvnextfalcon4&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Kerja bakti bank sampah"></div>
         <div class="berita-body">
           <span class="berita-date">28 Juni 2026</span>
           <h3>Kerja Bakti &amp; Gerakan Bank Sampah RW 05</h3>
@@ -685,7 +478,7 @@ footer{background:#13291F;color:rgba(251,248,240,.65);padding:50px 0 26px;}
         </div>
       </article>
       <article class="card berita-card">
-        <div class="berita-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg></div>
+        <div class="berita-thumb"><img src="https://tse2.mm.bing.net/th/id/OIP.zkoiA8kMHk7Yg3jBeVP_IAHaEL?r=0&cb=thfvnextfalcon4&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Sosialisasi layanan adminduk"></div>
         <div class="berita-body">
           <span class="berita-date">15 Juni 2026</span>
           <h3>Sosialisasi Layanan Adminduk Online</h3>
@@ -694,7 +487,7 @@ footer{background:#13291F;color:rgba(251,248,240,.65);padding:50px 0 26px;}
         </div>
       </article>
       <article class="card berita-card">
-        <div class="berita-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="31,16 24.3,19.4 26.6,26.6 19.4,24.3 16,31 12.5,24.3 5.4,26.6 7.7,19.4 1,16 7.7,12.5 5.4,5.4 12.5,7.7 16,1 19.4,7.7 26.6,5.4 24.3,12.5" transform="scale(0.7) translate(-2,-2)"/></svg></div>
+        <div class="berita-thumb"><img src="https://tse2.mm.bing.net/th/id/OIP.h4QOHL7aeL9ypvvpBtMLXQHaE8?r=0&cb=thfvnextfalcon4&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Musim panen durian dan rambutan"></div>
         <div class="berita-body">
           <span class="berita-date">2 Juni 2026</span>
           <h3>Menyambut Musim Panen Durian &amp; Rambutan</h3>
@@ -705,8 +498,6 @@ footer{background:#13291F;color:rgba(251,248,240,.65);padding:50px 0 26px;}
     </div>
   </div>
 </section>
-
-<!-- ============================================================ GALERI ============================================================ -->
 <section class="galeri pad" id="galeri">
   <div class="container">
     <div class="section-head reveal">
@@ -723,14 +514,11 @@ footer{background:#13291F;color:rgba(251,248,240,.65);padding:50px 0 26px;}
     </div>
   </div>
 </section>
-
-<!-- ============================================================ KONTAK ============================================================ -->
 <section class="kontak pad" id="kontak">
   <div class="container">
     <div class="section-head reveal">
       <p class="eyebrow">Kontak</p>
       <h2 class="section-title">Hubungi Kami</h2>
-      <p class="section-lede" style="color:rgba(251,248,240,.75);"></p>
     </div>
     <div class="kontak-grid reveal">
       <div>
@@ -766,12 +554,11 @@ footer{background:#13291F;color:rgba(251,248,240,.65);padding:50px 0 26px;}
   </div>
 </section>
 </main>
-
-<!-- ============================================================ FOOTER ============================================================ -->
 <footer>
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
+        <img src="https://thfvnext.bing.com/th/id/OIP.K6811aVrcQiOAHViwTawhwHaFj?r=0&o=7&cb=thfvnextfalcon4rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Logo Kelurahan Mijen" style="width:56px;height:56px;border-radius:50%;object-fit:cover;margin-bottom:14px;">
         <b>Kelurahan Mijen</b>
         <p>Kecamatan Mijen, Kota Semarang, Jawa Tengah. Kampung yang subur, guyub, dan bersemi.</p>
       </div>
@@ -791,33 +578,27 @@ footer{background:#13291F;color:rgba(251,248,240,.65);padding:50px 0 26px;}
         </div>
         <div class="footer-col">
           <b>Kontak Cepat</b>
-          <span>(024) xxx-xxxx</span>
+          <span>(024) 694-6767</span>
           <span>mijen@semarangkota.go.id</span>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Kelurahan Mijen. Seluruh hak cipta dilindungi.</span>
-      <span class="tpl-note">Situs ini adalah template starter — ganti seluruh data (statistik, struktur, kontak, foto) dengan data resmi terbaru dari Kelurahan Mijen.</span>
+      <span class="tpl-note"></span>
     </div>
     <div class="credit-line">
       Dirancang oleh <b>Arief Pebryanto Bagaswara</b> &middot; Kelas G2 &middot; NPP 36.1645 &middot; Program Studi Teknologi Rekayasa Informasi Pemerintahan &middot; disusun untuk memenuhi tugas mata kuliah Desa dan Kelurahan
     </div>
   </div>
 </footer>
-
 <script>
-// ============================================================ NAVBAR: solid saat discroll + toggle mobile ============================================================
 const navbar = document.getElementById('navbar');
 const navLinks = document.getElementById('navLinks');
 const navToggle = document.getElementById('navToggle');
-
-function onScroll(){
-  navbar.classList.toggle('solid', window.scrollY > 40);
-}
+function onScroll(){ navbar.classList.toggle('solid', window.scrollY > 40); }
 onScroll();
 window.addEventListener('scroll', onScroll, {passive:true});
-
 navToggle.addEventListener('click', () => {
   const isOpen = navLinks.classList.toggle('open');
   navToggle.setAttribute('aria-expanded', String(isOpen));
@@ -826,8 +607,6 @@ navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   navLinks.classList.remove('open');
   navToggle.setAttribute('aria-expanded','false');
 }));
-
-// ============================================================ SCROLLSPY: tandai menu aktif ============================================================
 const sections = document.querySelectorAll('main section[id], section[id]');
 const navAnchors = document.querySelectorAll('.nav-links a');
 const spyObserver = new IntersectionObserver((entries) => {
@@ -839,8 +618,6 @@ const spyObserver = new IntersectionObserver((entries) => {
   });
 }, {rootMargin:'-45% 0px -50% 0px'});
 sections.forEach(sec => { if(sec.id) spyObserver.observe(sec); });
-
-// ============================================================ REVEAL ON SCROLL ============================================================
 const revealEls = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -851,8 +628,6 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, {threshold:.15});
 revealEls.forEach(el => revealObserver.observe(el));
-
-// ============================================================ COUNTER ANIMASI STATISTIK ============================================================
 const counters = document.querySelectorAll('[data-target]');
 const counterObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -863,7 +638,6 @@ const counterObserver = new IntersectionObserver((entries) => {
   });
 }, {threshold:.4});
 counters.forEach(c => counterObserver.observe(c));
-
 function animateCounter(el){
   const target = parseInt(el.getAttribute('data-target'), 10);
   const duration = 1200;
