@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelurahan Mijen — Profil Resmi</title>
+<meta name="description" content="Website profil Kelurahan Mijen, Kecamatan Mijen, Kota Semarang — informasi wilayah, layanan publik, potensi, dan kegiatan warga.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TOKEN / VARIABEL DESAIN
+   Ganti nilai di sini untuk mengubah identitas warna & tipografi
+   seluruh situs.
+   ============================================================ */
+:root{
+  --forest:#1E4634;       /* hijau tua – warna utama, identik lahan subur Mijen */
+  --forest-light:#2F6B4F; /* hijau sekunder */
+  --forest-pale:#DDE9E0;  /* hijau sangat muda untuk aksen lembut */
+  --sand:#F6F1E3;         /* krem hangat – latar konten */
+  --sand-deep:#EEE4CB;    /* krem lebih gelap untuk selingan seksi */
+  --cream:#FBF8F0;        /* putih hangat untuk kartu */
+  --rambutan:#C1442C;     /* merah-oranye rambutan – aksen tegas */
+  --gold:#D6A527;         /* kuning durian/gading – aksen kedua */
+  --ink:#211F19;          /* nyaris hitam, hangat */
+  --ink-soft:#5B5648;     /* teks sekunder */
+  --line:#E1D8BE;         /* garis pembatas halus */
+  --shadow-sm:0 2px 10px rgba(33,31,25,.08);
+  --shadow-md:0 12px 32px rgba(33,31,25,.14);
+  --radius-lg:26px;
+  --radius-md:16px;
+  --radius-sm:10px;
+  --font-display:'Fraunces',Georgia,serif;
+  --font-body:'Plus Jakarta Sans',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+}
+
+/* ============================================================ RESET & DASAR ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--sand);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+ul{list-style:none;}
+h1,h2,h3,h4{font-family:var(--font-display);line-height:1.15;font-weight:600;color:var(--ink);}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px;}
+.container{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+.skip-link{
+  position:absolute;left:-999px;top:auto;background:var(--gold);color:var(--ink);
+  padding:12px 20px;border-radius:0 0 10px 0;font-weight:700;z-index:999;
+}
+.skip-link:focus{left:0;top:0;}
+
+/* ============================================================ UTILITAS ============================================================ */
+.eyebrow{
+  font-family:var(--font-mono);
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-size:.72rem;
+  font-weight:500;
+  color:var(--forest-light);
+  display:inline-flex;align-items:center;gap:8px;
+  margin-bottom:14px;
+}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--rambutan);display:inline-block;}
+.section-title{
+  font-size:clamp(1.7rem,3.4vw,2.5rem);
+  margin-bottom:16px;
+  max-width:640px;
+}
+.section-lede{
+  color:var(--ink-soft);
+  font-size:1.02rem;
+  max-width:600px;
+  margin-bottom:44px;
+}
+.section-head{margin-bottom:8px;}
+.pad{padding:100px 0;}
+@media (max-width:768px){.pad{padding:64px 0;}}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 26px;border-radius:999px;
+  font-weight:700;font-size:.95rem;
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+.btn-primary{background:var(--gold);color:var(--ink);box-shadow:var(--shadow-sm);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);}
+.btn-ghost{border:1.5px solid rgba(251,248,240,.55);color:var(--cream);}
+.btn-ghost:hover{background:rgba(251,248,240,.12);}
+.btn-outline{border:1.5px solid var(--forest);color:var(--forest);}
+.btn-outline:hover{background:var(--forest);color:var(--cream);}
+.card{
+  background:var(--cream);
+  border:1px solid var(--line);
+  border-radius:var(--radius-md);
+  box-shadow:var(--shadow-sm);
+}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease, transform .7s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+.grid{display:grid;gap:22px;}
+.g-2{grid-template-columns:repeat(2,1fr);}
+.g-3{grid-template-columns:repeat(3,1fr);}
+.g-4{grid-template-columns:repeat(4,1fr);}
+.g-6{grid-template-columns:repeat(6,1fr);}
+@media (max-width:980px){.g-4{grid-template-columns:repeat(2,1fr);}.g-6{grid-template-columns:repeat(3,1fr);}.g-3{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:600px){.g-2,.g-3,.g-4,.g-6{grid-template-columns:1fr 1fr;}}
+
+/* ============================================================ NAVBAR ============================================================ */
+.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:18px 0;
+  transition:background .35s ease, box-shadow .35s ease, padding .35s ease;
+}
+.navbar.solid{background:rgba(246,241,227,.92);backdrop-filter:blur(10px);box-shadow:0 2px 18px rgba(33,31,25,.08);padding:12px 0;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;}
+.brand{display:flex;align-items:center;gap:10px;}
+.brand-mark{width:38px;height:38px;flex:none;}
+.brand-text{display:flex;flex-direction:column;line-height:1.05;}
+.brand-text b{font-family:var(--font-display);font-size:1.18rem;color:var(--cream);transition:color .35s ease;}
+.brand-text span{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);}
+.navbar.solid .brand-text b{color:var(--forest);}
+.nav-links{display:flex;align-items:center;gap:6px;}
+.nav-links a{
+  padding:9px 15px;border-radius:999px;font-size:.9rem;font-weight:600;
+  color:rgba(251,248,240,.85);transition:background .25s ease,color .25s ease;
+}
+.navbar.solid .nav-links a{color:var(--ink-soft);}
+.nav-links a:hover,.nav-links a.active{background:rgba(251,248,240,.15);color:var(--cream);}
+.navbar.solid .nav-links a:hover,.navbar.solid .nav-links a.active{background:var(--forest-pale);color:var(--forest);}
+.nav-toggle{display:none;width:42px;height:42px;align-items:center;justify-content:center;border-radius:10px;color:var(--cream);}
+.navbar.solid .nav-toggle{color:var(--forest);}
+@media (max-width:900px){
+  .nav-links{
+    position:fixed;inset:0 0 auto 0;top:64px;background:var(--forest);
+    flex-direction:column;align-items:stretch;gap:0;padding:12px;
+    transform:translateY(-140%);transition:transform .35s ease;
+    box-shadow:var(--shadow-md);
+  }
+  .nav-links.open{transform:translateY(0);}
+  .nav-links a{color:var(--cream);padding:14px 18px;border-radius:12px;font-size:1rem;}
+  .nav-toggle{display:flex;}
+}
+
+/* ============================================================ HERO ============================================================ */
+.hero{
+  position:relative;
+  background:radial-gradient(120% 100% at 85% -10%, #2b5a44 0%, var(--forest) 45%, #163a2b 100%);
+  color:var(--cream);
+  padding:170px 0 0;
+  overflow:hidden;
+}
+.hero-inner{position:relative;z-index:2;max-width:760px;}
+.hero .eyebrow{color:var(--gold);}
+.hero .eyebrow::before{background:var(--gold);}
+.hero h1{
+  font-size:clamp(2.6rem,6.4vw,4.6rem);
+  color:var(--cream);
+  font-weight:600;
+  letter-spacing:-.01em;
+}
+.hero h1 em{color:var(--gold);font-style:normal;}
+.hero-tag{
+  font-size:1.12rem;color:rgba(251,248,240,.86);margin:22px 0 34px;max-width:560px;
+}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:56px;}
+.hero-stats{
+  display:flex;gap:0;flex-wrap:wrap;
+  border-top:1px solid rgba(251,248,240,.18);
+  padding-top:26px;
+}
+.hero-stat{padding:0 30px 0 0;margin-right:30px;border-right:1px solid rgba(251,248,240,.18);}
+.hero-stat:last-child{border-right:none;}
+.hero-stat b{display:block;font-family:var(--font-display);font-size:1.7rem;color:var(--gold);}
+.hero-stat span{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(251,248,240,.7);}
+.hero-note{margin-top:18px;font-size:.78rem;color:rgba(251,248,240,.55);font-style:italic;}
+.hero-orchard{position:absolute;left:0;right:0;bottom:-2px;width:100%;z-index:1;opacity:.5;}
+.hero-wave{display:block;width:100%;position:relative;z-index:2;margin-top:70px;}
+@media (max-width:600px){.hero{padding-top:130px;}.hero-stat{padding-right:18px;margin-right:18px;}}
+
+/* Motif botani (elemen tanda tangan): durian & rambutan */
+.botanic-strip{background:var(--sand);padding:14px 0;overflow:hidden;}
+.botanic-strip svg{width:100%;height:34px;display:block;}
+
+/* ============================================================ SAMBUTAN ============================================================ */
+.sambutan{background:var(--sand);}
+.sambutan-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center;}
+.sambutan-photo{
+  aspect-ratio:4/5;border-radius:var(--radius-lg);
+  background:linear-gradient(160deg,var(--forest-pale),var(--sand-deep));
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;
+  border:1px solid var(--line);color:var(--forest-light);
+}
+.sambutan-photo span{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;}
+.sambutan-quote{font-family:var(--font-display);font-size:1.35rem;font-weight:400;font-style:italic;color:var(--ink);margin-bottom:22px;}
+.sambutan-body p{color:var(--ink-soft);margin-bottom:14px;}
+.sambutan-sign b{display:block;font-family:var(--font-display);font-size:1.1rem;margin-top:18px;}
+.sambutan-sign span{font-size:.85rem;color:var(--ink-soft);}
+@media (max-width:860px){.sambutan-grid{grid-template-columns:1fr;}.sambutan-photo{max-width:280px;margin:0 auto;}}
+
+/* ============================================================ TENTANG (SEJARAH + VISI MISI) ============================================================ */
+.tentang{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.tentang-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+.tentang-col h3{font-size:1.3rem;margin-bottom:14px;color:var(--forest);}
+.tentang-col p{color:var(--ink-soft);margin-bottom:14px;}
+.misi-list li{
+  display:flex;gap:14px;padding:14px 0;border-top:1px dashed var(--line);
+  color:var(--ink-soft);font-size:.96rem;
+}
+.misi-list li:first-child{border-top:none;}
+.misi-num{
+  font-family:var(--font-mono);font-weight:600;color:var(--rambutan);flex:none;
+}
+@media (max-width:860px){.tentang-grid{grid-template-columns:1fr;gap:40px;}}
+
+/* ============================================================ WILAYAH / STATISTIK ============================================================ */
+.wilayah{background:var(--sand);}
+.stat-card{
+  padding:28px 22px;text-align:left;position:relative;overflow:hidden;
+}
+.stat-card b{
+  font-family:var(--font-display);font-size:2.1rem;color:var(--forest);display:block;
+}
+.stat-card .unit{font-size:1.1rem;color:var(--forest-light);font-weight:500;}
+.stat-card span.label{
+  display:block;margin-top:8px;font-family:var(--font-mono);font-size:.7rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);
+}
+.stat-card::after{
+  content:"";position:absolute;right:-18px;bottom:-18px;width:70px;height:70px;
+  border-radius:50%;background:var(--forest-pale);z-index:0;
+}
+.stat-card b,.stat-card span{position:relative;z-index:1;}
+.wilayah-note{font-size:.85rem;color:var(--ink-soft);font-style:italic;margin-top:22px;}
+
+/* ============================================================ POTENSI (SEKSI TANDA TANGAN) ============================================================ */
+.potensi{background:var(--forest);color:var(--cream);position:relative;}
+.potensi .eyebrow{color:var(--gold);}
+.potensi .eyebrow::before{background:var(--gold);}
+.potensi .section-title{color:var(--cream);}
+.potensi .section-lede{color:rgba(251,248,240,.78);}
+.potensi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px;}
+.potensi-card{
+  background:rgba(251,248,240,.06);
+  border:1px solid rgba(251,248,240,.16);
+  border-radius:var(--radius-md);padding:30px 26px;
+}
+.potensi-icon{width:46px;height:46px;margin-bottom:18px;}
+.potensi-card h3{color:var(--cream);font-size:1.2rem;margin-bottom:10px;}
+.potensi-card p{color:rgba(251,248,240,.75);font-size:.94rem;}
+.musim-note{
+  margin-top:40px;padding:22px 26px;border-radius:var(--radius-md);
+  background:rgba(214,165,39,.13);border:1px dashed rgba(214,165,39,.5);
+  font-size:.95rem;color:rgba(251,248,240,.88);
+}
+@media (max-width:860px){.potensi-grid{grid-template-columns:1fr;}}
+
+/* ============================================================ PRESTASI ============================================================ */
+.prestasi{background:var(--sand-deep);}
+.badge-row{display:flex;flex-wrap:wrap;gap:12px;}
+.badge{
+  display:flex;align-items:center;gap:10px;
+  background:var(--cream);border:1px solid var(--line);border-radius:999px;
+  padding:10px 18px 10px 12px;font-size:.88rem;font-weight:600;color:var(--ink);
+  box-shadow:var(--shadow-sm);
+}
+.badge svg{width:20px;height:20px;flex:none;color:var(--gold);}
+
+/* ============================================================ STRUKTUR ORGANISASI ============================================================ */
+.struktur{background:var(--cream);}
+.org{display:flex;flex-direction:column;align-items:center;gap:0;}
+.org-box{
+  background:var(--forest);color:var(--cream);border-radius:var(--radius-sm);
+  padding:16px 26px;text-align:center;min-width:200px;box-shadow:var(--shadow-sm);
+}
+.org-box b{display:block;font-size:.95rem;letter-spacing:.02em;}
+.org-box span{display:block;font-size:.76rem;color:rgba(251,248,240,.7);margin-top:4px;font-style:italic;}
+.org-box.alt{background:var(--forest-light);}
+.org-line{width:2px;height:30px;background:var(--line);}
+.org-row{display:flex;gap:0;position:relative;padding-top:30px;}
+.org-row::before{content:"";position:absolute;top:0;left:calc(200px/2 + 12px);right:calc(200px/2 + 12px);height:2px;background:var(--line);}
+.org-row .org-item{display:flex;flex-direction:column;align-items:center;padding:0 12px;position:relative;}
+.org-row .org-item::before{content:"";position:absolute;top:-30px;left:50%;width:2px;height:30px;background:var(--line);}
+.org-row .org-box{min-width:170px;}
+@media (max-width:860px){
+  .org-row{flex-direction:column;gap:20px;padding-top:0;}
+  .org-row::before{display:none;}
+  .org-row .org-item::before{position:static;height:20px;margin-bottom:0;}
+  .org-row .org-item{padding:0;}
+}
+
+/* ============================================================ LAYANAN PUBLIK ============================================================ */
+.layanan{background:var(--sand);}
+.layanan-card{padding:26px 24px;}
+.layanan-icon{width:38px;height:38px;color:var(--rambutan);margin-bottom:16px;}
+.layanan-card h3{font-size:1.06rem;margin-bottom:8px;}
+.layanan-card p{color:var(--ink-soft);font-size:.9rem;margin-bottom:10px;}
+.layanan-syarat{font-family:var(--font-mono);font-size:.72rem;color:var(--forest-light);letter-spacing:.02em;}
+.jam-strip{
+  margin-top:36px;display:flex;flex-wrap:wrap;gap:20px 44px;align-items:center;
+  padding:22px 26px;border-radius:var(--radius-md);background:var(--forest-pale);
+}
+.jam-strip div b{display:block;font-size:.75rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--forest-light);}
+.jam-strip div span{font-size:.95rem;font-weight:600;}
+
+/* ============================================================ BERITA ============================================================ */
+.berita{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.berita-card{overflow:hidden;}
+.berita-thumb{
+  height:150px;background:linear-gradient(135deg,var(--forest),var(--forest-light));
+  display:flex;align-items:center;justify-content:center;color:rgba(251,248,240,.85);
+}
+.berita-thumb svg{width:34px;height:34px;}
+.berita-body{padding:22px 22px 24px;}
+.berita-date{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--rambutan);margin-bottom:10px;display:block;}
+.berita-body h3{font-size:1.08rem;margin-bottom:10px;}
+.berita-body p{color:var(--ink-soft);font-size:.9rem;margin-bottom:14px;}
+.berita-link{font-weight:700;font-size:.85rem;color:var(--forest);display:inline-flex;align-items:center;gap:6px;}
+
+/* ============================================================ GALERI ============================================================ */
+.galeri{background:var(--sand);}
+.galeri-item{
+  aspect-ratio:1/1;border-radius:var(--radius-md);
+  background:linear-gradient(150deg,var(--forest-pale),var(--sand-deep));
+  border:1px solid var(--line);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  color:var(--forest-light);text-align:center;padding:14px;
+}
+.galeri-item svg{width:28px;height:28px;}
+.galeri-item span{font-size:.78rem;font-weight:600;color:var(--ink-soft);}
+
+/* ============================================================ KONTAK ============================================================ */
+.kontak{background:var(--forest);color:var(--cream);}
+.kontak .eyebrow{color:var(--gold);}
+.kontak .eyebrow::before{background:var(--gold);}
+.kontak .section-title{color:var(--cream);}
+.kontak-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;}
+.kontak-list li{display:flex;gap:16px;padding:16px 0;border-top:1px solid rgba(251,248,240,.15);}
+.kontak-list li:first-child{border-top:none;}
+.kontak-list svg{width:22px;height:22px;flex:none;color:var(--gold);margin-top:2px;}
+.kontak-list b{display:block;font-size:.72rem;font-family:var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:rgba(251,248,240,.6);margin-bottom:4px;}
+.kontak-list span{font-size:.98rem;}
+.kontak-note{margin-top:18px;font-size:.8rem;color:rgba(251,248,240,.55);font-style:italic;}
+.map-frame{
+  border-radius:var(--radius-md);overflow:hidden;border:1px solid rgba(251,248,240,.2);
+  aspect-ratio:4/3;
+}
+.map-frame iframe{width:100%;height:100%;border:0;filter:grayscale(.15) contrast(1.05);}
+.social-row{display:flex;gap:10px;margin-top:22px;}
+.social-row a{
+  width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(251,248,240,.35);
+  display:flex;align-items:center;justify-content:center;transition:background .25s ease;
+}
+.social-row a:hover{background:rgba(251,248,240,.14);}
+.social-row svg{width:18px;height:18px;}
+@media (max-width:860px){.kontak-grid{grid-template-columns:1fr;}}
+
+/* ============================================================ FOOTER ============================================================ */
+footer{background:#13291F;color:rgba(251,248,240,.65);padding:50px 0 26px;}
+.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;padding-bottom:34px;border-bottom:1px solid rgba(251,248,240,.12);}
+.footer-brand b{font-family:var(--font-display);font-size:1.3rem;color:var(--cream);}
+.footer-brand p{max-width:280px;margin-top:10px;font-size:.85rem;}
+.footer-cols{display:flex;gap:60px;flex-wrap:wrap;}
+.footer-col b{display:block;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.footer-col a,.footer-col span{display:block;font-size:.86rem;padding:5px 0;color:rgba(251,248,240,.65);}
+.footer-col a:hover{color:var(--cream);}
+.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:24px;font-size:.78rem;}
+.footer-bottom .tpl-note{max-width:520px;font-style:italic;color:rgba(251,248,240,.5);}
+.credit-line{
+  margin-top:18px;padding-top:18px;border-top:1px dashed rgba(251,248,240,.14);
+  font-size:.76rem;line-height:1.7;color:rgba(251,248,240,.55);text-align:center;
+}
+.credit-line b{color:rgba(251,248,240,.85);font-weight:700;}
+@media (max-width:700px){.credit-line{text-align:left;}}
+
+/* ============================================================ ANIMASI MASUK NAVBAR ============================================================ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+.hero-inner > *{animation:fadeUp .8s ease both;}
+.hero-inner > *:nth-child(2){animation-delay:.08s;}
+.hero-inner > *:nth-child(3){animation-delay:.16s;}
+.hero-inner > *:nth-child(4){animation-delay:.24s;}
+.hero-inner > *:nth-child(5){animation-delay:.32s;}
+</style>
+</head>
+<body>
+<a href="#konten" class="skip-link">Lompat ke konten utama</a>
+
+<!-- ============================================================ NAVBAR ============================================================ -->
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#beranda" class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <circle cx="20" cy="20" r="19" fill="#0F2A1F"/>
+        <polygon points="29.4,20 24.5,21.9 26.1,26.8 21.2,25.6 20,30.5 18.8,25.6 13.9,26.8 15.5,21.9 10.6,20 15.5,18.1 13.9,13.2 18.8,14.4 20,9.5 21.2,14.4 26.1,13.2 24.5,18.1" fill="#D6A527"/>
+      </svg>
+      <span class="brand-text"><b>Mijen</b><span>Kelurahan</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#beranda">Beranda</a>
+      <a href="#profil">Profil</a>
+      <a href="#potensi">Potensi</a>
+      <a href="#layanan">Layanan</a>
+      <a href="#berita">Berita</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Buka menu navigasi" aria-expanded="false">
+      <svg id="iconMenu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="24" height="24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="konten">
+<!-- ============================================================ HERO ============================================================ -->
+<section class="hero" id="beranda">
+  <div class="container hero-inner">
+    <p class="eyebrow">Kecamatan Mijen &middot; Kota Semarang &middot; Jawa Tengah</p>
+    <h1>Kelurahan <em>Mijen</em></h1>
+    <p class="hero-tag">Mijen Bersemi — Bersih, Sehat, dan Minim Sampah. Kampung di jantung Kecamatan Mijen yang teduh oleh pohon durian dan rambutan, serta hangat oleh gotong royong warganya.</p>
+    <div class="hero-cta">
+      <a href="#layanan" class="btn btn-primary">Layanan Publik</a>
+      <a href="#kontak" class="btn btn-ghost">Hubungi Kelurahan</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><b>3,5 km²</b><span>Luas Wilayah</span></div>
+      <div class="hero-stat"><b>8 RW</b><span>Rukun Warga</span></div>
+      <div class="hero-stat"><b>45 RT</b><span>Rukun Tetangga</span></div>
+      <div class="hero-stat"><b>&plusmn;9.200</b><span>Jiwa Penduduk</span></div>
+    </div>
+    <p class="hero-note">*Data di atas contoh ilustrasi — sesuaikan dengan data monografi kelurahan terbaru.</p>
+  </div>
+
+  <svg class="hero-wave" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,50 C280,110 900,-10 1200,50 L1200,90 L0,90 Z" fill="#F6F1E3"/>
+  </svg>
+</section>
+
+<!-- Strip motif botani: tanda tangan visual situs -->
+<div class="botanic-strip" aria-hidden="true">
+  <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
+    <g fill="#2F6B4F">
+      <polygon transform="translate(4,4) scale(0.75)" points="31,16 24.3,19.4 26.6,26.6 19.4,24.3 16,31 12.5,24.3 5.4,26.6 7.7,19.4 1,16 7.7,12.5 5.4,5.4 12.5,7.7 16,1 19.4,7.7 26.6,5.4 24.3,12.5"/>
+      <polygon transform="translate(204,4) scale(0.75)" points="31,16 24.3,19.4 26.6,26.6 19.4,24.3 16,31 12.5,24.3 5.4,26.6 7.7,19.4 1,16 7.7,12.5 5.4,5.4 12.5,7.7 16,1 19.4,7.7 26.6,5.4 24.3,12.5"/>
+      <polygon transform="translate(404,4) scale(0.75)" points="31,16 24.3,19.4 26.6,26.6 19.4,24.3 16,31 12.5,24.3 5.4,26.6 7.7,19.4 1,16 7.7,12.5 5.4,5.4 12.5,7.7 16,1 19.4,7.7 26.6,5.4 24.3,12.5"/>
+      <polygon transform="translate(604,4) scale(0.75)" points="31,16 24.3,19.4 26.6,26.6 19.4,24.3 16,31 12.5,24.3 5.4,26.6 7.7,19.4 1,16 7.7,12.5 5.4,5.4 12.5,7.7 16,1 19.4,7.7 26.6,5.4 24.3,12.5"/>
+      <polygon transform="translate(804,4) scale(0.75)" points="31,16 24.3,19.4 26.6,26.6 19.4,24.3 16,31 12.5,24.3 5.4,26.6 7.7,19.4 1,16 7.7,12.5 5.4,5.4 12.5,7.7 16,1 19.4,7.7 26.6,5.4 24.3,12.5"/>
+      <polygon transform="translate(1004,4) scale(0.75)" points="31,16 24.3,19.4 26.6,26.6 19.4,24.3 16,31 12.5,24.3 5.4,26.6 7.7,19.4 1,16 7.7,12.5 5.4,5.4 12.5,7.7 16,1 19.4,7.7 26.6,5.4 24.3,12.5"/>
+    </g>
+    <g fill="#D6A527" stroke="#D6A527" stroke-width="1.4" stroke-linecap="round">
+      <g transform="translate(104,4) scale(0.75)"><circle cx="16" cy="16" r="9" fill="#D6A527"/><line x1="25" y1="16" x2="31" y2="16"/><line x1="23.8" y1="20.5" x2="29" y2="23.5"/><line x1="20.5" y1="23.8" x2="23.5" y2="29"/><line x1="16" y1="25" x2="16" y2="31"/><line x1="11.5" y1="23.8" x2="8.5" y2="29"/><line x1="8.2" y1="20.5" x2="3" y2="23.5"/><line x1="7" y1="16" x2="1" y2="16"/><line x1="8.2" y1="11.5" x2="3" y2="8.5"/><line x1="11.5" y1="8.2" x2="8.5" y2="3"/><line x1="16" y1="7" x2="16" y2="1"/><line x1="20.5" y1="8.2" x2="23.5" y2="3"/><line x1="23.8" y1="11.5" x2="29" y2="8.5"/></g>
+      <g transform="translate(304,4) scale(0.75)"><circle cx="16" cy="16" r="9" fill="#D6A527"/><line x1="25" y1="16" x2="31" y2="16"/><line x1="23.8" y1="20.5" x2="29" y2="23.5"/><line x1="20.5" y1="23.8" x2="23.5" y2="29"/><line x1="16" y1="25" x2="16" y2="31"/><line x1="11.5" y1="23.8" x2="8.5" y2="29"/><line x1="8.2" y1="20.5" x2="3" y2="23.5"/><line x1="7" y1="16" x2="1" y2="16"/><line x1="8.2" y1="11.5" x2="3" y2="8.5"/><line x1="11.5" y1="8.2" x2="8.5" y2="3"/><line x1="16" y1="7" x2="16" y2="1"/><line x1="20.5" y1="8.2" x2="23.5" y2="3"/><line x1="23.8" y1="11.5" x2="29" y2="8.5"/></g>
+      <g transform="translate(504,4) scale(0.75)"><circle cx="16" cy="16" r="9" fill="#D6A527"/><line x1="25" y1="16" x2="31" y2="16"/><line x1="23.8" y1="20.5" x2="29" y2="23.5"/><line x1="20.5" y1="23.8" x2="23.5" y2="29"/><line x1="16" y1="25" x2="16" y2="31"/><line x1="11.5" y1="23.8" x2="8.5" y2="29"/><line x1="8.2" y1="20.5" x2="3" y2="23.5"/><line x1="7" y1="16" x2="1" y2="16"/><line x1="8.2" y1="11.5" x2="3" y2="8.5"/><line x1="11.5" y1="8.2" x2="8.5" y2="3"/><line x1="16" y1="7" x2="16" y2="1"/><line x1="20.5" y1="8.2" x2="23.5" y2="3"/><line x1="23.8" y1="11.5" x2="29" y2="8.5"/></g>
+      <g transform="translate(704,4) scale(0.75)"><circle cx="16" cy="16" r="9" fill="#D6A527"/><line x1="25" y1="16" x2="31" y2="16"/><line x1="23.8" y1="20.5" x2="29" y2="23.5"/><line x1="20.5" y1="23.8" x2="23.5" y2="29"/><line x1="16" y1="25" x2="16" y2="31"/><line x1="11.5" y1="23.8" x2="8.5" y2="29"/><line x1="8.2" y1="20.5" x2="3" y2="23.5"/><line x1="7" y1="16" x2="1" y2="16"/><line x1="8.2" y1="11.5" x2="3" y2="8.5"/><line x1="11.5" y1="8.2" x2="8.5" y2="3"/><line x1="16" y1="7" x2="16" y2="1"/><line x1="20.5" y1="8.2" x2="23.5" y2="3"/><line x1="23.8" y1="11.5" x2="29" y2="8.5"/></g>
+      <g transform="translate(904,4) scale(0.75)"><circle cx="16" cy="16" r="9" fill="#D6A527"/><line x1="25" y1="16" x2="31" y2="16"/><line x1="23.8" y1="20.5" x2="29" y2="23.5"/><line x1="20.5" y1="23.8" x2="23.5" y2="29"/><line x1="16" y1="25" x2="16" y2="31"/><line x1="11.5" y1="23.8" x2="8.5" y2="29"/><line x1="8.2" y1="20.5" x2="3" y2="23.5"/><line x1="7" y1="16" x2="1" y2="16"/><line x1="8.2" y1="11.5" x2="3" y2="8.5"/><line x1="11.5" y1="8.2" x2="8.5" y2="3"/><line x1="16" y1="7" x2="16" y2="1"/><line x1="20.5" y1="8.2" x2="23.5" y2="3"/><line x1="23.8" y1="11.5" x2="29" y2="8.5"/></g>
+      <g transform="translate(1104,4) scale(0.75)"><circle cx="16" cy="16" r="9" fill="#D6A527"/><line x1="25" y1="16" x2="31" y2="16"/><line x1="23.8" y1="20.5" x2="29" y2="23.5"/><line x1="20.5" y1="23.8" x2="23.5" y2="29"/><line x1="16" y1="25" x2="16" y2="31"/><line x1="11.5" y1="23.8" x2="8.5" y2="29"/><line x1="8.2" y1="20.5" x2="3" y2="23.5"/><line x1="7" y1="16" x2="1" y2="16"/><line x1="8.2" y1="11.5" x2="3" y2="8.5"/><line x1="11.5" y1="8.2" x2="8.5" y2="3"/><line x1="16" y1="7" x2="16" y2="1"/><line x1="20.5" y1="8.2" x2="23.5" y2="3"/><line x1="23.8" y1="11.5" x2="29" y2="8.5"/></g>
+    </g>
+  </svg>
+</div>
+
+<!-- ============================================================ SAMBUTAN LURAH ============================================================ -->
+<section class="sambutan pad">
+  <div class="container sambutan-grid reveal">
+    <div class="sambutan-photo">
+      <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+      <span>Foto Lurah Mijen</span>
+    </div>
+    <div>
+      <p class="eyebrow">Sambutan</p>
+      <p class="sambutan-quote">&ldquo;Keterbukaan informasi adalah bagian dari pelayanan yang baik.&rdquo;</p>
+      <div class="sambutan-body">
+        <p>Selamat datang di laman resmi Kelurahan Mijen. Website ini kami hadirkan sebagai jendela informasi bagi warga maupun siapa saja yang ingin mengenal lebih dekat kampung kami — mulai dari layanan administrasi, potensi wilayah, hingga kegiatan warga sehari-hari.</p>
+        <p>Mari bersama membangun Mijen yang guyub, bersih, dan sejahtera, selaras dengan semangat Mijen Bersemi.</p>
+      </div>
+      <div class="sambutan-sign">
+        <b>[Nama Lurah]</b>
+        <span>Lurah Mijen</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ PROFIL: SEJARAH & VISI MISI ============================================================ -->
+<section class="tentang pad" id="profil">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Profil</p>
+      <h2 class="section-title">Mengenal Kelurahan Mijen</h2>
+    </div>
+    <div class="tentang-grid">
+      <div class="tentang-col reveal">
+        <h3>Sejarah Singkat</h3>
+        <p>Nama &ldquo;Mijen&rdquo; dipercaya berasal dari Mbah Kamijen, warga yang menjadi salah satu pembuka lahan pertama di wilayah ini. Terletak di jantung Kecamatan Mijen, kelurahan ini tumbuh dari tanah yang subur dan sejak lama dikenal sebagai salah satu sentra durian dan rambutan di Kota Semarang.</p>
+        <p>Seiring waktu, Mijen berkembang menjadi permukiman yang memadukan kehidupan agraris dengan semangat gotong royong warganya, sambil tetap menjaga warisan kebun buah yang menjadi identitas kampung.</p>
+      </div>
+      <div class="tentang-col reveal">
+        <h3>Visi</h3>
+        <p>Mewujudkan Kelurahan Mijen yang guyub, mandiri, dan lestari — bersih, sehat, dan minim sampah, dengan pelayanan publik yang cepat serta transparan.</p>
+        <h3 style="margin-top:26px;">Misi</h3>
+        <ul class="misi-list">
+          <li><span class="misi-num">01</span> Meningkatkan kualitas pelayanan administrasi kependudukan yang cepat, mudah, dan transparan.</li>
+          <li><span class="misi-num">02</span> Mendorong kebersihan lingkungan lewat gerakan bank sampah dan Mijen Bersemi.</li>
+          <li><span class="misi-num">03</span> Memberdayakan UMKM dan potensi hasil bumi durian-rambutan sebagai sumber ekonomi warga.</li>
+          <li><span class="misi-num">04</span> Menguatkan gotong royong dan kegiatan kemasyarakatan di tingkat RT/RW.</li>
+          <li><span class="misi-num">05</span> Menciptakan lingkungan permukiman yang layak dan ramah anak.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ DATA WILAYAH ============================================================ -->
+<section class="wilayah pad">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Data Wilayah</p>
+      <h2 class="section-title">Mijen dalam Angka</h2>
+      <p class="section-lede">Gambaran umum wilayah administratif dan kependudukan Kelurahan Mijen.</p>
+    </div>
+    <div class="grid g-6 reveal">
+      <div class="card stat-card"><b>3,5<span class="unit"> km&sup2;</span></b><span class="label">Luas Wilayah</span></div>
+      <div class="card stat-card"><b data-target="8">0</b><span class="label">Rukun Warga</span></div>
+      <div class="card stat-card"><b data-target="45">0</b><span class="label">Rukun Tetangga</span></div>
+      <div class="card stat-card"><b data-target="2480">0</b><span class="label">Kepala Keluarga</span></div>
+      <div class="card stat-card"><b data-target="4610">0</b><span class="label">Penduduk Laki-laki</span></div>
+      <div class="card stat-card"><b data-target="4590">0</b><span class="label">Penduduk Perempuan</span></div>
+    </div>
+    <p class="wilayah-note reveal">*Angka bersifat ilustratif sebagai contoh tampilan. Perbarui sesuai data monografi resmi kelurahan.</p>
+  </div>
+</section>
+
+<!-- ============================================================ POTENSI UNGGULAN (SEKSI TANDA TANGAN) ============================================================ -->
+<section class="potensi pad" id="potensi">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Potensi Unggulan</p>
+      <h2 class="section-title">Lumbung Durian &amp; Rambutan Semarang</h2>
+      <p class="section-lede">Tanah Mijen yang subur menjadikannya salah satu kampung penghasil durian dan rambutan yang dikenal di Kota Semarang, sekaligus rumah bagi UMKM olahan hasil bumi warganya.</p>
+    </div>
+    <div class="potensi-grid reveal">
+      <div class="potensi-card">
+        <svg class="potensi-icon" viewBox="0 0 32 32" fill="#D6A527"><polygon points="31,16 24.3,19.4 26.6,26.6 19.4,24.3 16,31 12.5,24.3 5.4,26.6 7.7,19.4 1,16 7.7,12.5 5.4,5.4 12.5,7.7 16,1 19.4,7.7 26.6,5.4 24.3,12.5"/></svg>
+        <h3>Kebun Durian</h3>
+        <p>Pekarangan dan kebun warga banyak ditanami durian lokal, menjadikan Mijen salah satu titik buruan pencinta durian saat musim panen tiba.</p>
+      </div>
+      <div class="potensi-card">
+        <svg class="potensi-icon" viewBox="0 0 32 32" fill="none" stroke="#D6A527" stroke-width="1.6" stroke-linecap="round"><circle cx="16" cy="16" r="9" fill="#D6A527" stroke="none"/><line x1="25" y1="16" x2="31" y2="16"/><line x1="23.8" y1="20.5" x2="29" y2="23.5"/><line x1="20.5" y1="23.8" x2="23.5" y2="29"/><line x1="16" y1="25" x2="16" y2="31"/><line x1="11.5" y1="23.8" x2="8.5" y2="29"/><line x1="8.2" y1="20.5" x2="3" y2="23.5"/><line x1="7" y1="16" x2="1" y2="16"/><line x1="8.2" y1="11.5" x2="3" y2="8.5"/><line x1="11.5" y1="8.2" x2="8.5" y2="3"/><line x1="16" y1="7" x2="16" y2="1"/><line x1="20.5" y1="8.2" x2="23.5" y2="3"/><line x1="23.8" y1="11.5" x2="29" y2="8.5"/></svg>
+        <h3>Kebun Rambutan</h3>
+        <p>Berdampingan dengan durian, pohon rambutan tumbuh subur di banyak pekarangan dan menjadi ciri khas lanskap hijau kampung Mijen.</p>
+      </div>
+      <div class="potensi-card">
+        <svg class="potensi-icon" viewBox="0 0 24 24" fill="none" stroke="#D6A527" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 21V12h6v9"/></svg>
+        <h3>UMKM Olahan Buah</h3>
+        <p>Kreativitas warga menghasilkan aneka olahan seperti es durian, dodol, dan keripik buah — potensi ekonomi lokal yang terus dikembangkan.</p>
+      </div>
+    </div>
+    <p class="musim-note reveal">🌱 Musim panen raya biasanya berlangsung menjelang akhir hingga awal tahun, saat aroma durian matang memenuhi kampung dan warga ramai menggelar lapak buah di pinggir jalan.</p>
+  </div>
+</section>
+
+<!-- ============================================================ PRESTASI ============================================================ -->
+<section class="prestasi pad">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Prestasi</p>
+      <h2 class="section-title">Penghargaan &amp; Capaian Warga</h2>
+    </div>
+    <div class="badge-row reveal">
+      <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="5"/><path d="M8 13l-1.5 7L12 17l5.5 3L16 13"/></svg>Harapan 1 Bank Sampah Tingkat Kota</div>
+      <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="5"/><path d="M8 13l-1.5 7L12 17l5.5 3L16 13"/></svg>Juara 1 Lomba Masak HKG Tingkat Kecamatan</div>
+      <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="5"/><path d="M8 13l-1.5 7L12 17l5.5 3L16 13"/></svg>Juara 2 Kelurahan Layak Anak Tingkat Kota</div>
+      <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="5"/><path d="M8 13l-1.5 7L12 17l5.5 3L16 13"/></svg>Juara 2 Paduan Suara Tingkat Kecamatan</div>
+      <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="5"/><path d="M8 13l-1.5 7L12 17l5.5 3L16 13"/></svg>Harapan 1 Program Kampung Iklim Tingkat Kota</div>
+      <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="5"/><path d="M8 13l-1.5 7L12 17l5.5 3L16 13"/></svg>Juara 1 Lomba Bank Sampah Tingkat Kota</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ STRUKTUR ORGANISASI ============================================================ -->
+<section class="struktur pad" id="struktur">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Struktur</p>
+      <h2 class="section-title">Struktur Organisasi Kelurahan</h2>
+    </div>
+    <div class="org reveal">
+      <div class="org-box"><b>LURAH MIJEN</b><span>[Arief]</span></div>
+      <div class="org-line"></div>
+      <div class="org-box alt"><b>SEKRETARIS KELURAHAN</b><span>[Nama Pejabat]</span></div>
+      <div class="org-row">
+        <div class="org-item"><div class="org-box"><b>Kasi Pemerintahan &amp; Trantib</b><span>[Nama Pejabat]</span></div></div>
+        <div class="org-item"><div class="org-box"><b>Kasi Kesejahteraan Sosial</b><span>[Nama Pejabat]</span></div></div>
+        <div class="org-item"><div class="org-box"><b>Kasi Ekonomi &amp; Pembangunan</b><span>[Nama Pejabat]</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ LAYANAN PUBLIK ============================================================ -->
+<section class="layanan pad" id="layanan">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Layanan</p>
+      <h2 class="section-title">Layanan Publik Kelurahan</h2>
+      <p class="section-lede">Berikut layanan administrasi yang paling sering diakses warga.</p>
+    </div>
+    <div class="grid g-3 reveal">
+      <div class="card layanan-card">
+        <svg class="layanan-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+        <h3>Surat Pengantar KTP</h3>
+        <p>Pengantar untuk pembuatan atau perpanjangan e-KTP di kecamatan.</p>
+        <p class="layanan-syarat">Syarat: KK asli, KTP lama (jika ada)</p>
+      </div>
+      <div class="card layanan-card">
+        <svg class="layanan-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <h3>Surat Pengantar Kartu Keluarga</h3>
+        <p>Pengantar untuk penerbitan baru atau perubahan data KK.</p>
+        <p class="layanan-syarat">Syarat: KK lama, dokumen pendukung</p>
+      </div>
+      <div class="card layanan-card">
+        <svg class="layanan-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-6 9 6v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        <h3>Surat Keterangan Domisili</h3>
+        <p>Bukti tempat tinggal untuk berbagai keperluan administrasi.</p>
+        <p class="layanan-syarat">Syarat: KTP, KK</p>
+      </div>
+      <div class="card layanan-card">
+        <svg class="layanan-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+        <h3>Surat Keterangan Usaha</h3>
+        <p>Untuk keperluan perizinan usaha kecil atau pengajuan bantuan.</p>
+        <p class="layanan-syarat">Syarat: KTP, foto lokasi usaha</p>
+      </div>
+      <div class="card layanan-card">
+        <svg class="layanan-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <h3>Surat Keterangan Tidak Mampu</h3>
+        <p>Untuk keperluan bantuan sosial atau keringanan pendidikan.</p>
+        <p class="layanan-syarat">Syarat: KTP, KK</p>
+      </div>
+      <div class="card layanan-card">
+        <svg class="layanan-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+        <h3>Legalisasi Dokumen</h3>
+        <p>Pengesahan salinan dokumen kependudukan warga.</p>
+        <p class="layanan-syarat">Syarat: dokumen asli &amp; fotokopi</p>
+      </div>
+    </div>
+    <div class="jam-strip reveal">
+      <div><b>Senin&ndash;Kamis</b><span>08.00 &ndash; 15.00 WIB</span></div>
+      <div><b>Jumat</b><span>08.00 &ndash; 11.00 WIB</span></div>
+      <div><b>Sabtu &amp; Minggu</b><span>Tutup</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ BERITA ============================================================ -->
+<section class="berita pad" id="berita">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Berita</p>
+      <h2 class="section-title">Berita &amp; Pengumuman</h2>
+    </div>
+    <div class="grid g-3 reveal">
+      <article class="card berita-card">
+        <div class="berita-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h18v18H3z"/><path d="M8 21V9"/><path d="M16 21V9"/></svg></div>
+        <div class="berita-body">
+          <span class="berita-date">28 Juni 2026</span>
+          <h3>Kerja Bakti &amp; Gerakan Bank Sampah RW 05</h3>
+          <p>Warga bergotong royong membersihkan lingkungan sekaligus memilah sampah rumah tangga sebagai bagian dari gerakan Mijen Bersemi.</p>
+          <a href="#" class="berita-link">Baca selengkapnya &rarr;</a>
+        </div>
+      </article>
+      <article class="card berita-card">
+        <div class="berita-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg></div>
+        <div class="berita-body">
+          <span class="berita-date">15 Juni 2026</span>
+          <h3>Sosialisasi Layanan Adminduk Online</h3>
+          <p>Kelurahan mengadakan sosialisasi tata cara pengajuan surat kependudukan secara daring bagi warga RT/RW.</p>
+          <a href="#" class="berita-link">Baca selengkapnya &rarr;</a>
+        </div>
+      </article>
+      <article class="card berita-card">
+        <div class="berita-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="31,16 24.3,19.4 26.6,26.6 19.4,24.3 16,31 12.5,24.3 5.4,26.6 7.7,19.4 1,16 7.7,12.5 5.4,5.4 12.5,7.7 16,1 19.4,7.7 26.6,5.4 24.3,12.5" transform="scale(0.7) translate(-2,-2)"/></svg></div>
+        <div class="berita-body">
+          <span class="berita-date">2 Juni 2026</span>
+          <h3>Menyambut Musim Panen Durian &amp; Rambutan</h3>
+          <p>Warga mulai bersiap menyambut musim panen raya dengan menggelar lapak buah dan pelatihan pengolahan hasil kebun.</p>
+          <a href="#" class="berita-link">Baca selengkapnya &rarr;</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ GALERI ============================================================ -->
+<section class="galeri pad" id="galeri">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Galeri</p>
+      <h2 class="section-title">Dokumentasi Kegiatan</h2>
+    </div>
+    <div class="grid g-6 reveal">
+      <div class="galeri-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-8h6v8"/></svg><span>Kantor Kelurahan</span></div>
+      <div class="galeri-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="7" r="3"/><path d="M2 21v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2"/></svg><span>Gotong Royong</span></div>
+      <div class="galeri-item"><svg viewBox="0 0 32 32" fill="currentColor"><polygon points="31,16 24.3,19.4 26.6,26.6 19.4,24.3 16,31 12.5,24.3 5.4,26.6 7.7,19.4 1,16 7.7,12.5 5.4,5.4 12.5,7.7 16,1 19.4,7.7 26.6,5.4 24.3,12.5" transform="scale(0.8) translate(3,3)"/></svg><span>Panen Durian</span></div>
+      <div class="galeri-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><span>Posyandu Balita</span></div>
+      <div class="galeri-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span>Pelatihan UMKM</span></div>
+      <div class="galeri-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/></svg><span>Peringatan HUT RI</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ KONTAK ============================================================ -->
+<section class="kontak pad" id="kontak">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Kontak</p>
+      <h2 class="section-title">Hubungi Kami</h2>
+      <p class="section-lede" style="color:rgba(251,248,240,.75);">Lengkapi informasi kontak di bawah dengan data resmi Kelurahan Mijen.</p>
+    </div>
+    <div class="kontak-grid reveal">
+      <div>
+        <ul class="kontak-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div><b>Alamat</b><span>Kantor Kelurahan Mijen, Jl. [Nama Jalan], Kec. Mijen, Kota Semarang, Jawa Tengah 502xx</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+            <div><b>Telepon</b><span>(024) xxx-xxxx</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+            <div><b>Email</b><span>mijen@semarangkota.go.id</span></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <div><b>Jam Layanan</b><span>Senin&ndash;Kamis 08.00&ndash;15.00, Jumat 08.00&ndash;11.00 WIB</span></div>
+          </li>
+        </ul>
+        <p class="kontak-note">*Alamat, nomor telepon, dan email di atas adalah contoh format — mohon disesuaikan dengan data resmi.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10,9 16,12 10,15" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+      <div class="map-frame">
+        <iframe title="Peta lokasi Kelurahan Mijen" src="https://www.google.com/maps?q=Kelurahan%20Mijen%2C%20Kecamatan%20Mijen%2C%20Kota%20Semarang&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============================================================ FOOTER ============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <b>Kelurahan Mijen</b>
+        <p>Kecamatan Mijen, Kota Semarang, Jawa Tengah. Kampung yang subur, guyub, dan bersemi.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <b>Navigasi</b>
+          <a href="#profil">Profil</a>
+          <a href="#potensi">Potensi</a>
+          <a href="#layanan">Layanan</a>
+          <a href="#berita">Berita</a>
+        </div>
+        <div class="footer-col">
+          <b>Lainnya</b>
+          <a href="#galeri">Galeri</a>
+          <a href="#kontak">Kontak</a>
+          <a href="#struktur">Struktur</a>
+        </div>
+        <div class="footer-col">
+          <b>Kontak Cepat</b>
+          <span>(024) xxx-xxxx</span>
+          <span>mijen@semarangkota.go.id</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Kelurahan Mijen. Seluruh hak cipta dilindungi.</span>
+      <span class="tpl-note">Situs ini adalah template starter — ganti seluruh data (statistik, struktur, kontak, foto) dengan data resmi terbaru dari Kelurahan Mijen.</span>
+    </div>
+    <div class="credit-line">
+      Dirancang oleh <b>Arief Pebryanto Bagaswara</b> &middot; Kelas G2 &middot; NPP 36.1645 &middot; Program Studi Teknologi Rekayasa Informasi Pemerintahan &middot; disusun untuk memenuhi tugas mata kuliah Desa dan Kelurahan
+    </div>
+  </div>
+</footer>
+
+<script>
+// ============================================================ NAVBAR: solid saat discroll + toggle mobile ============================================================
+const navbar = document.getElementById('navbar');
+const navLinks = document.getElementById('navLinks');
+const navToggle = document.getElementById('navToggle');
+
+function onScroll(){
+  navbar.classList.toggle('solid', window.scrollY > 40);
+}
+onScroll();
+window.addEventListener('scroll', onScroll, {passive:true});
+
+navToggle.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', String(isOpen));
+});
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  navLinks.classList.remove('open');
+  navToggle.setAttribute('aria-expanded','false');
+}));
+
+// ============================================================ SCROLLSPY: tandai menu aktif ============================================================
+const sections = document.querySelectorAll('main section[id], section[id]');
+const navAnchors = document.querySelectorAll('.nav-links a');
+const spyObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      const id = entry.target.getAttribute('id');
+      navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    }
+  });
+}, {rootMargin:'-45% 0px -50% 0px'});
+sections.forEach(sec => { if(sec.id) spyObserver.observe(sec); });
+
+// ============================================================ REVEAL ON SCROLL ============================================================
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('in');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {threshold:.15});
+revealEls.forEach(el => revealObserver.observe(el));
+
+// ============================================================ COUNTER ANIMASI STATISTIK ============================================================
+const counters = document.querySelectorAll('[data-target]');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      animateCounter(entry.target);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, {threshold:.4});
+counters.forEach(c => counterObserver.observe(c));
+
+function animateCounter(el){
+  const target = parseInt(el.getAttribute('data-target'), 10);
+  const duration = 1200;
+  const start = performance.now();
+  function tick(now){
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const value = Math.round(target * eased);
+    el.textContent = value.toLocaleString('id-ID');
+    if(progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+</script>
+</body>
+</html>
