@@ -1,1 +1,355 @@
-print ("hello worldd")
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelurahan Mijen - Semarang</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #2f2f2f;
+    background: #fbf8f1;
+    line-height: 1.6;
+  }
+  a { color: inherit; }
+
+  /* NAVBAR */
+  nav {
+    background: #2f6b3a;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav .logo {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  nav ul li a:hover { text-decoration: underline; }
+
+  /* HERO */
+  header.hero {
+    background: linear-gradient(rgba(20,50,20,0.55), rgba(20,50,20,0.55)),
+                url('https://images.unsplash.com/photo-1500076656116-558758c991c1?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 90px 20px;
+  }
+  header.hero h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+  }
+  header.hero p {
+    font-size: 17px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  section {
+    padding: 50px 20px;
+    max-width: 950px;
+    margin: 0 auto;
+  }
+  section h2 {
+    color: #2f6b3a;
+    font-size: 26px;
+    margin-bottom: 8px;
+    border-bottom: 3px solid #e0a63a;
+    display: inline-block;
+    padding-bottom: 4px;
+  }
+  section p { margin-top: 14px; font-size: 15px; }
+
+  .bg-alt { background: #f0ead9; }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid #e2dccb;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+  }
+  .card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+  }
+  .card-body { padding: 14px; }
+  .card-body h3 {
+    color: #2f6b3a;
+    font-size: 17px;
+    margin-bottom: 6px;
+  }
+  .card-body p { margin-top: 0; font-size: 14px; }
+
+  .badge {
+    display: inline-block;
+    background: #e0a63a;
+    color: #fff;
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-top: 8px;
+  }
+
+  ul.simple-list {
+    margin-top: 14px;
+    padding-left: 20px;
+  }
+  ul.simple-list li { margin-bottom: 8px; font-size: 15px; }
+
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  .stats div {
+    background: #fff;
+    border: 1px solid #e2dccb;
+    border-radius: 8px;
+    padding: 18px;
+    flex: 1;
+    min-width: 140px;
+  }
+  .stats div span {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    color: #2f6b3a;
+  }
+  .stats div small { color: #666; }
+
+  footer {
+    background: #23492b;
+    color: #fff;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 30px;
+    font-size: 14px;
+  }
+  footer p { margin: 4px 0; }
+
+  .map-wrap {
+    margin-top: 20px;
+    border: 1px solid #e2dccb;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .map-wrap iframe {
+    width: 100%;
+    height: 320px;
+    border: 0;
+    display: block;
+  }
+
+  .note {
+    font-size: 13px;
+    color: #777;
+    margin-top: 30px;
+    border-top: 1px dashed #ccc;
+    padding-top: 14px;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Kelurahan Mijen</div>
+  <ul>
+    <li><a href="#sejarah">Sejarah</a></li>
+    <li><a href="#potensi">Potensi</a></li>
+    <li><a href="#wisata">Wisata</a></li>
+    <li><a href="#kuliner">Kuliner</a></li>
+    <li><a href="#budaya">Budaya & UMKM</a></li>
+    <li><a href="#kelebihan">Kelebihan</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <h1>Selamat Datang di Kelurahan Mijen</h1>
+  <p>Kecamatan Mijen, Kota Semarang — Disusun oleh Arief Pebryanto Bagaswara G-2 36.1645 Desa Dan Kelurahan </p>
+</header>
+
+<section id="sejarah">
+  <h2>Sejarah Mijen</h2>
+  <p>
+    Nama "Mijen" dipercaya berasal dari sosok yang pertama kali membuka permukiman di wilayah ini, yaitu Mbah Kamijen.
+    Ada pula versi lain yang menyebut nama tokoh masyarakat setempat, Mbah Muji, sebagai asal muasal nama desa ini.
+    Sementara itu, sebagian warga meyakini kata "Mijen" berakar dari kata Jawa "ijen" yang berarti "sendiri", merujuk
+    pada letak permukiman awal yang terpencil dan berdiri sendiri di tengah hutan dan perbukitan.
+  </p>
+  <p>
+    Sebelum dikenal seperti sekarang, kawasan ini disebut-sebut sudah ada sejak masa sebelum kemerdekaan dengan nama
+    <strong>"Klisat Mijen"</strong>. Selama puluhan tahun, wilayah Mijen berstatus sebagai bagian dari Kabupaten Kendal,
+    sebelum akhirnya pada tanggal <strong>1 Juli 1976</strong> resmi dialihkan dan bergabung menjadi bagian dari
+    Kota Semarang, menjadikannya salah satu dari kecamatan yang ada di kota tersebut.
+  </p>
+  <p>
+    Secara turun-temurun, Mijen tumbuh sebagai daerah agraris yang subur, bahkan sempat dikenal luas sebagai salah satu
+    lumbung durian dan rambutan di Kota Semarang. Jejak masa lampau yang lebih tua juga ditemukan di kawasan ini berupa
+    situs <strong>Candi Duduhan</strong>, peninggalan yang diperkirakan berasal dari masa Kerajaan Mataram Kuno, sebagai
+    bukti bahwa wilayah ini telah dihuni dan memiliki peradaban jauh sebelum era Kolonial maupun sebelum bergabung
+    dengan Semarang.
+  </p>
+  <p>
+    Berbagai legenda lokal, kesenian, adat istiadat, dan tradisi turun-temurun warga Mijen turut terekam dan
+    dilestarikan, salah satunya melalui buku "Tradisi dari Mijen" yang mendokumentasikan kekayaan budaya wilayah ini.
+    Perpaduan antara akar sejarah agraris, jejak kerajaan kuno, dan semangat gotong royong warga inilah yang membentuk
+    identitas Mijen hingga hari ini.
+  </p>
+</section>
+
+<section id="potensi" class="bg-alt">
+  <h2>Potensi Alam & Manusia</h2>
+  <p>
+    Berada di dataran yang lebih tinggi dan sejuk dibanding pusat Kota Semarang, Mijen dikelilingi hamparan sawah,
+    perbukitan, dan pemandangan gunung yang masih asri. Sebagian besar warga menggantungkan hidup dari pertanian,
+    perkebunan, dan usaha rumahan (UMKM), sehingga suasana kampung masih sangat terasa meski letaknya tak jauh dari kota.
+  </p>
+  <div class="stats">
+    <div><span>13+</span><small>Kelurahan di Kecamatan Mijen</small></div>
+    <div><span>1976</span><small>Bergabung ke Kota Semarang</small></div>
+    <div><span>Sejuk</span><small>Iklim & suasana pedesaan</small></div>
+  </div>
+  <p>
+    Warga Mijen juga dikenal aktif dalam kegiatan gotong royong dan pemberdayaan masyarakat, mulai dari kelompok tani,
+    kelompok UMKM, hingga kegiatan pelestarian lingkungan seperti program "Mijen Bersemi" (Bersih, Sehat, Minim Sampah)
+    yang digalakkan pemerintah kelurahan.
+  </p>
+</section>
+
+<section id="wisata">
+  <h2>Tempat Wisata</h2>
+  <p>Beberapa destinasi menarik di seputar Mijen yang layak dikunjungi:</p>
+  <div class="card-grid">
+    <div class="card">
+      <img src="https://asset-2.tstatic.net/jateng/foto/bank/images/kampung-sawah-mijen-semarang.jpg" alt="Kampung Wisata Sawah">
+      <div class="card-body">
+        <h3>Kampung Wisata Sawah</h3>
+        <p>Hamparan sawah luas dengan latar belakang pegunungan. Sering dipakai untuk acara budaya dan pentas
+          busana daerah, sekaligus jadi tempat pengunjung belajar bertani dan berfoto di area persawahan.</p>
+        <span class="badge">Wisata Alam</span>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjj0DsHlHMRv9R9BrZgG-zwQMW4_xPmUKq9K0O7mRKeTjOMCu0SxnjIw-lMuV_zKP4urSx-PyZ4jAZ3VmDD7mJijvD4NCG8gKykO_s7Z1TkykuZ2G3A_Jr1_PK3AYlKdRUgoboc8VSaLo/s1600/100_3221.JPG" alt="Situs Candi Duduhan">
+      <div class="card-body">
+        <h3>Situs Candi Duduhan</h3>
+        <p>Peninggalan arkeologis dari masa Mataram Kuno. Cocok untuk yang suka wisata sejarah dan ingin tahu lebih
+          dalam tentang asal-usul Mijen.</p>
+        <span class="badge">Wisata Sejarah</span>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://jatengpos.co.id/wp-content/uploads/2023/12/8944933D-7D78-45F3-9F43-8F11BC165FB9.jpeg" alt="Kawasan Tugu Dandang">
+      <div class="card-body">
+        <h3>Kawasan Tugu Dandang & Wisata Sodong</h3>
+        <p>Destinasi baru yang ramah keluarga, dilengkapi kolam bermain anak dan area rekreasi dengan suasana pedesaan
+          yang teduh.</p>
+        <span class="badge">Wisata Keluarga</span>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://rekomendasi.or.id/wp-content/uploads/2023/04/Spot-Swafoto-dan-Bersantai-di-Patung-Kuda-BSB-City.jpg" alt="Wisata Berkuda">
+      <div class="card-body">
+        <h3>Wisata Berkuda</h3>
+        <p>Bagi yang ingin pengalaman berbeda, ada arena berkuda dengan pemandangan hijau di sekitarnya, cocok untuk
+          keluarga maupun pemula.</p>
+        <span class="badge">Wisata Aktivitas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kuliner" class="bg-alt">
+  <h2>Makanan & Kuliner Khas</h2>
+  <p>Setelah puas berkeliling, jangan lupa cicipi kuliner khas warga Mijen:</p>
+  <ul class="simple-list">
+    <li><strong>Soto Sawah</strong> — soto tradisional yang disantap langsung dengan suasana tengah sawah, jadi favorit warga maupun wisatawan.</li>
+    <li><strong>Dawet & Tape Ketan</strong> — jajanan segar khas yang banyak dijajakan warga di acara-acara kampung.</li>
+    <li><strong>Keripik Talas & Stik Sayuran</strong> — camilan olahan hasil bumi lokal buatan UMKM setempat.</li>
+    <li><strong>Jamu Tradisional</strong> — minuman herbal racikan warga yang masih dilestarikan turun-temurun.</li>
+    <li><strong>Telur Asin & Tempe</strong> — produk rumahan yang jadi andalan sebagian warga sebagai mata pencaharian.</li>
+  </ul>
+</section>
+
+<section id="budaya">
+  <h2>Budaya & UMKM</h2>
+  <p>
+    Masyarakat Mijen masih menjaga banyak tradisi dan kesenian lokal, salah satunya kesenian <strong>Jaran Eblek</strong>
+    yang sering ditampilkan pada acara-acara kampung seperti Festival Mijen. Selain itu, semangat gotong royong warga
+    juga terlihat dari berkembangnya usaha kecil menengah (UMKM), mulai dari kerajinan, batik, hingga aneka olahan
+    makanan rumahan yang terus didorong pemerintah kelurahan agar semakin dikenal luas.
+  </p>
+  <p>
+    Beberapa kelompok warga bahkan berinisiatif membuat program swadaya, seperti bantuan modal tanpa bunga bagi
+    pelaku usaha kecil dan petani, sebagai bentuk kepedulian sesama warga.
+  </p>
+</section>
+
+<section id="kelebihan">
+  <h2>Kelebihan Kelurahan Mijen</h2>
+  <p>Dibanding kawasan lain di Kota Semarang, Mijen punya beberapa keunggulan yang membuatnya layak dikunjungi maupun dijadikan tempat tinggal:</p>
+  <ul class="simple-list">
+    <li><strong>Udara sejuk & alam masih asri</strong> — letaknya di dataran tinggi membuat Mijen jauh lebih sejuk dibanding pusat kota, dengan pemandangan sawah dan perbukitan yang masih terjaga.</li>
+    <li><strong>Kaya jejak sejarah</strong> — memiliki situs peninggalan sejak masa Mataram Kuno (Candi Duduhan) sekaligus sejarah panjang sebagai wilayah agraris sejak sebelum kemerdekaan.</li>
+    <li><strong>Potensi wisata beragam</strong> — mulai dari wisata alam, wisata sejarah, wisata keluarga, hingga wisata aktivitas seperti berkuda, sehingga cocok untuk berbagai jenis pengunjung.</li>
+    <li><strong>Hasil bumi melimpah</strong> — dikenal sebagai salah satu penghasil durian dan rambutan di Kota Semarang, ditunjang lahan pertanian yang subur.</li>
+    <li><strong>Kuliner khas yang otentik</strong> — memiliki ragam kuliner dan jajanan tradisional hasil olahan warga sendiri, seperti soto sawah, dawet, dan aneka camilan UMKM.</li>
+    <li><strong>Semangat gotong royong warga</strong> — masyarakatnya aktif menjaga lingkungan dan saling membantu lewat kelompok tani, UMKM, hingga program bantuan modal usaha tanpa bunga.</li>
+    <li><strong>Lokasi strategis</strong> — meski suasananya masih pedesaan, Mijen tetap merupakan bagian dari Kota Semarang sehingga akses ke pusat kota tetap mudah dijangkau.</li>
+  </ul>
+</section>
+
+<section id="kontak" class="bg-alt">
+  <h2>Kontak & Info Lebih Lanjut</h2>
+  <p>Ingin tahu lebih banyak atau berkunjung langsung ke Mijen? Hubungi kantor Kelurahan Mijen, Kecamatan Mijen, Kota Semarang.</p>
+  <p>📍 Kelurahan Mijen, Kecamatan Mijen, Kota Semarang, Jawa Tengah</p>
+  <p>🌐 Info resmi: mijen.semarangkota.go.id</p>
+
+  <div class="map-wrap">
+    <iframe
+      src="https://www.google.com/maps?q=Kelurahan%20Mijen%2C%20Kecamatan%20Mijen%2C%20Kota%20Semarang&output=embed"
+      allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Kelurahan Mijen, Kecamatan Mijen, Kota Semarang</p>
+  <p>Dibuat dengan bangga untuk memperkenalkan kampung halaman kami</p>
+  <p style="margin-top:16px; opacity:0.85;">
+    Disusun oleh: <strong>Arief Pebryanto Bagaswara</strong> — G2 / 36.1645<br>
+    Mata Kuliah: Desa dan Kelurahan
+  </p>
+</footer>
+
+</body>
+</html>
